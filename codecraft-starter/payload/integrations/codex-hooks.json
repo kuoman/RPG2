@@ -1,0 +1,41 @@
+{
+  "description": "Protect established behavior assets and CodeCraft policy files.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/.codecraft/hooks/protect_assets.py\"",
+            "timeout": 10,
+            "statusMessage": "Checking protected CodeCraft assets"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/.codecraft/hooks/protect_assets.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/env python3 \"$(git rev-parse --show-toplevel)/.codecraft/hooks/protect_assets.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

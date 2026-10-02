@@ -1,0 +1,11 @@
+{
+  "projectName": "RPG2",
+  "profile": "java-maven",
+  "verifyCommand": ["./mvnw", "-f", "java/pom.xml", "verify"],
+  "sourceRoot": "java/src/main/java",
+  "testRoot": "java/src/test/java",
+  "bddPattern": "*_bdd.java",
+  "planPath": "emergent/design/development-plan.md",
+  "responsibilityMapPath": "emergent/design/responsibility-map.md",
+  "protectedPatterns": ["*_bdd.java", "**/*.approved.txt", "**/*.golden", "**/*.snap", "**/fixtures/**"]
+}
