@@ -2,7 +2,8 @@
   "receiptMaxAgeMinutes": 60,
   "evidencePaths": [
     "automation/review-decisions.json",
-    "emergent/design/development-plan.md"
+    "emergent/design/development-plan.md",
+    "interations.md"
   ],
   "lanes": {
     "behavior": {

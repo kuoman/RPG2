@@ -1,0 +1,1 @@
+Hero has 1000 health and is alive.
