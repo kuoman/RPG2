@@ -1,0 +1,9 @@
+default_permissions = "codecraft"
+
+[permissions.codecraft]
+description = "Edit the workspace while keeping CodeCraft policy files read-only."
+extends = ":workspace"
+
+[permissions.codecraft.filesystem.":workspace_roots"]
+".codex" = "read"
+".codecraft/hooks" = "read"

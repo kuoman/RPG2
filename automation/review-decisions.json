@@ -1,0 +1,107 @@
+[
+  {
+    "id": "python-habit-hooks",
+    "source": "Habit Hooks",
+    "summary": "Enable Python-specific coaching for authored workflow automation",
+    "decision": "defer",
+    "rationale": "The plugin requires undeclared detector toolchains and responsibility-driven splits of existing large Python files; handle that as its own approved batch."
+  },
+  {
+    "id": "independent-agent-review",
+    "source": "Habit Hooks",
+    "summary": "Run a reviewer sub-agent before declaring the workflow batch complete",
+    "decision": "accept",
+    "rationale": "The human approved a read-only independent review; all eleven blocking and edge-case findings were addressed with regression coverage."
+  },
+  {
+    "id": "artifact-schema-centralization",
+    "source": "Independent review",
+    "summary": "Centralize the artifact schema shared by the template, renderer, and validator",
+    "decision": "defer",
+    "rationale": "The duplication is real, but centralizing the template, renderer, and validator is a separate representation-design change; full-schema regression coverage protects CodeCraft 0.8.0 until that batch is approved."
+  },
+  {
+    "id": "artifact-schema-centralization-follow-up",
+    "source": "User",
+    "summary": "Implement the previously deferred artifact-schema centralization as part of CodeCraft 0.9.0",
+    "decision": "accept",
+    "rationale": "The human explicitly approved all seven process optimizations, including centralizing the artifact schema."
+  },
+  {
+    "id": "independent-agent-review-0.9",
+    "source": "Habit Hooks",
+    "summary": "Run a reviewer sub-agent before declaring the CodeCraft 0.9.0 optimization batch complete",
+    "decision": "accept",
+    "rationale": "All seven boundary findings were addressed before completion."
+  },
+  {
+    "id": "independent-agent-review-jacoco",
+    "source": "Habit Hooks",
+    "summary": "Run a reviewer sub-agent before declaring the JaCoCo metrics automation complete",
+    "decision": "accept",
+    "rationale": "The human approved Element 1 so a read-only reviewer can assess the JaCoCo automation before completion."
+  },
+  {
+    "id": "coverage-durability-decision",
+    "source": "Coverage coaching",
+    "summary": "Review the unexecuted outcome in MagicalObjectDurability.isDestroyed as a likely focused behavior-test gap",
+    "decision": "accept",
+    "rationale": "The human approved treating the unexecuted isDestroyed outcome as a likely focused behavior-test gap to prepare as a separate slice."
+  },
+  {
+    "id": "coverage-magic-wrapper-protocol",
+    "source": "Coverage coaching",
+    "summary": "Review six unexecuted MagicalObject protocol methods on HealingMagicalObject and MagicalWeapon as a possible responsibility or interface smell before adding tests",
+    "decision": "accept",
+    "rationale": "The human approved a responsibility and interface review before adding tests for the six unexecuted wrapper protocol methods."
+  },
+  {
+    "id": "coverage-faction-name",
+    "source": "Coverage coaching",
+    "summary": "Review the unexecuted Faction.name query as a possible unnecessary API before adding a test",
+    "decision": "defer",
+    "rationale": "The human approved deferring the unused name query until behavior requires it or a dedicated API-cleanup slice is undertaken."
+  },
+  {
+    "id": "independent-agent-review-coverage-coach",
+    "source": "Habit Hooks",
+    "summary": "Run a read-only reviewer sub-agent before declaring the coverage-coaching automation complete",
+    "decision": "accept",
+    "rationale": "The human approved a read-only independent review before the coverage-coaching automation is declared complete."
+  },
+  {
+    "id": "coverage-generated-method-labels",
+    "source": "Independent review",
+    "summary": "Decide whether coverage coaching should label constructors and synthetic lambda methods differently from public API methods",
+    "decision": "defer",
+    "rationale": "The human approved deferring specialized constructor and synthetic-lambda wording until an actual uncovered generated-method finding demonstrates that the generic coaching is misleading."
+  },
+  {
+    "id": "independent-agent-review-codecraft-starter",
+    "source": "Habit Hooks",
+    "summary": "Run a read-only independent security and portability review before declaring CodeCraft Starter 0.1.0 complete",
+    "decision": "accept",
+    "rationale": "The human approved an independent read-only security and portability review before CodeCraft Starter 0.1.0 is declared complete."
+  },
+  {
+    "id": "fresh-model-forward-test-codecraft-starter",
+    "source": "CodeCraft Starter release acceptance",
+    "summary": "Run the documented fresh-model discovery and checkpoint exercise in a disposable installed repository",
+    "decision": "accept",
+    "rationale": "The human approved the documented fresh-model exercise in a disposable installed repository as release evidence."
+  },
+  {
+    "id": "standalone-license-codecraft-starter",
+    "source": "Packaging review",
+    "summary": "Choose a standalone license before publishing CodeCraft Starter independently of this repository",
+    "decision": "defer",
+    "rationale": "The human approved keeping the package under the containing repository for now and selecting a standalone license only before independent public publication."
+  },
+  {
+    "id": "standalone-license-reconsideration-codecraft-starter",
+    "source": "Human-decision",
+    "summary": "Retain a standalone licensing requirement for CodeCraft Starter",
+    "decision": "reject",
+    "rationale": "The human explicitly decided that no standalone licensing work or release requirement is needed."
+  }
+]

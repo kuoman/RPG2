@@ -1,0 +1,4 @@
+interface:
+  display_name: "CodeCraft"
+  short_description: "Collaborative outside-in Java development"
+  default_prompt: "Use $codecraft to implement the next approved Java behavior through the repository workflow."

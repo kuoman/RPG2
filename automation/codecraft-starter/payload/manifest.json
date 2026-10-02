@@ -1,0 +1,43 @@
+{
+  "profile": "java-maven",
+  "managed": [
+    {"source": "agents/codecraft-skill.md", "target": ".agents/skills/codecraft/SKILL.md"},
+    {"source": "agents/active-run-state.md", "target": ".agents/skills/codecraft/references/active-run-state.md"},
+    {"source": "agents/feature-cycle.md", "target": ".agents/skills/codecraft/references/feature-cycle.md"},
+    {"source": "agents/evolution.md", "target": ".agents/skills/codecraft/references/evolution.md"},
+    {"source": "agents/openai.yaml", "target": ".agents/skills/codecraft/agents/openai.yaml"},
+    {"source": "agents/bdd-approval-grid.md", "target": ".agents/skills/codecraft/assets/bdd-approval-grid.md"},
+    {"source": "agents/feature-artifact-template.md", "target": ".agents/skills/codecraft/assets/feature-artifact-template.md"},
+    {"source": "agents/committer-skill.md", "target": ".agents/skills/committer/SKILL.md"},
+    {"source": "runtime/codecraft-doctor.py", "target": ".codecraft/bin/codecraft_doctor.py", "executable": true},
+    {"source": "runtime/codecraft-run.py", "target": ".codecraft/bin/codecraft_run.py", "executable": true},
+    {"source": "runtime/review-decision.py", "target": ".codecraft/bin/record_review_decision.py", "executable": true},
+    {"source": "runtime/validate-skill.py", "target": ".codecraft/bin/validate_skill.py", "executable": true},
+    {"source": "runtime/verify-increment.py", "target": ".codecraft/bin/verify_increment.py", "executable": true},
+    {"source": "runtime/protect-assets.py", "target": ".codecraft/hooks/protect_assets.py", "executable": true},
+    {"source": "runtime/prepare-protected-change.py", "target": ".codecraft/bin/prepare_protected_change.py", "executable": true},
+    {"source": "integrations/codex-hooks.json", "targetParts": [".codex", "hooks.json"]},
+    {"source": "integrations/codex-config.toml", "targetParts": [".codex", "config.toml"]},
+    {"source": "integrations/claude-codecraft.md", "target": ".claude/rules/codecraft.md"},
+    {"source": "integrations/java-maven-profile.md", "target": ".codecraft/profiles/java-maven/README.md"},
+    {"source": "integrations/maven-pom-fragment.xml", "target": ".codecraft/profiles/java-maven/pom-fragment.xml"}
+  ],
+  "projectOwned": [
+    {"source": "project/project.json", "target": ".codecraft/project.json"},
+    {"source": "project/completion-lanes.json", "target": ".codecraft/completion-lanes.json"},
+    {"source": "project/working-agreement.md", "target": "automation/codecraft-working-agreement.md"},
+    {"source": "project/review-decisions.json", "target": "automation/review-decisions.json"},
+    {"source": "project/protected-assets.json", "target": ".codecraft/protected-assets.json"},
+    {"source": "project/development-plan.md", "target": "emergent/design/development-plan.md"},
+    {"source": "project/responsibility-map.md", "target": "emergent/design/responsibility-map.md"},
+    {"source": "project/always.md", "target": ".claude/rules/always.md"},
+    {"source": "integrations/github-codecraft.yml", "target": ".github/workflows/codecraft.yml"}
+  ],
+  "mergeBlocks": [
+    {"source": "integrations/agents-block.md", "target": "AGENTS.md", "name": "CODECRAFT"}
+  ],
+  "appendLines": [
+    {"target": ".gitignore", "lines": [".codecraft/state/", ".uv-cache/", ".venv/", "**/__pycache__/", "target/"]}
+  ],
+  "migrations": []
+}

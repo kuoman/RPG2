@@ -1,0 +1,11 @@
+{
+  "projectName": {{PROJECT_NAME_JSON}},
+  "profile": "java-maven",
+  "verifyCommand": {{VERIFY_COMMAND_JSON}},
+  "sourceRoot": {{SOURCE_ROOT_JSON}},
+  "testRoot": {{TEST_ROOT_JSON}},
+  "bddPattern": "{{BDD_PATTERN}}",
+  "planPath": "{{PLAN_PATH}}",
+  "responsibilityMapPath": "{{RESPONSIBILITY_MAP_PATH}}",
+  "protectedPatterns": ["*_bdd.java", "**/*.approved.txt", "**/*.golden", "**/*.snap", "**/fixtures/**"]
+}

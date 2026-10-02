@@ -1,0 +1,19 @@
+<!-- Reference only. Reconcile with the target POM through an approved automation slice. -->
+<plugins>
+    <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.15</version>
+        <executions>
+            <execution>
+                <id>codecraft-prepare-agent</id>
+                <goals><goal>prepare-agent</goal></goals>
+            </execution>
+            <execution>
+                <id>codecraft-coverage-report</id>
+                <phase>prepare-package</phase>
+                <goals><goal>report</goal></goals>
+            </execution>
+        </executions>
+    </plugin>
+</plugins>

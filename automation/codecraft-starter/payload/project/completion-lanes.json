@@ -1,0 +1,29 @@
+{
+  "receiptMaxAgeMinutes": 60,
+  "evidencePaths": [
+    "automation/review-decisions.json",
+    "emergent/design/development-plan.md"
+  ],
+  "lanes": {
+    "behavior": {
+      "commands": [{{VERIFY_COMMAND_JSON}}],
+      "inputs": [".codecraft/**/*", ".agents/skills/codecraft/**/*", "pom.xml", "{{SOURCE_ROOT}}/**/*", "{{TEST_ROOT}}/**/*"]
+    },
+    "refactoring": {
+      "commands": [{{VERIFY_COMMAND_JSON}}],
+      "inputs": [".codecraft/**/*", ".agents/skills/codecraft/**/*", "pom.xml", "{{SOURCE_ROOT}}/**/*", "{{TEST_ROOT}}/**/*"]
+    },
+    "automation": {
+      "commands": [
+        {{VERIFY_COMMAND_JSON}},
+        ["python3", ".codecraft/bin/validate_skill.py", ".agents/skills/codecraft"],
+        ["python3", ".codecraft/bin/validate_skill.py", ".agents/skills/committer"]
+      ],
+      "inputs": [".codecraft/**/*", ".agents/**/*", ".codex/**/*", ".claude/**/*", "AGENTS.md", "automation/codecraft-working-agreement.md", "pom.xml", "{{SOURCE_ROOT}}/**/*", "{{TEST_ROOT}}/**/*"]
+    },
+    "documentation": {
+      "commands": [["git", "diff", "--check"]],
+      "inputs": ["**/*.md"]
+    }
+  }
+}
