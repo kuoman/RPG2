@@ -12,7 +12,7 @@ public class PlayerCharacter {
     }
 
     public void receiveDamage(PlayerCharacter enemy, int damagePoints) {
-        if (damagePoints > health) {
+        if (damagePoints >= health) {
             health = 0;
             alive = false;
         } else {

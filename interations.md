@@ -675,3 +675,53 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Response:** `a`
 - **Resulting authorization or action:** Authorized the prepared exact nine-path `git commit --only` command with Arlo message `F kill targets on overkill damage`, after refreshing interaction evidence and the staged receipt. No push is authorized.
 - **Automation evidence:** This is the second consecutive behavior increment proving the need for one transaction-scoped capability covering verified staging plus exact commit.
+
+### IP-067 — Continue to exact-health depletion
+
+- **Type:** Human instruction
+- **Stage:** Before run creation
+- **Trigger:** After Element 3 was committed and its run completed, the human requested `continue`.
+- **Request or event:** Resume CodeCraft state and assess the next provisional plan item without creating tests or production behavior before its design checkpoint.
+- **Response:** `codecraft_run.py resume --json` returned `{"active": false}`. The plan names exact-health depletion next; `main` is two committed behavior changes ahead of `origin/main`, while unrelated `README.md` and `.idea` work remains untouched.
+- **Resulting authorization or action:** Assessment only. No new run, test, protected asset, or production code has been created or changed.
+- **Automation evidence:** Successive completed behaviors can reuse the same narrow continuation preflight without rediscovering unrelated repository state.
+
+### IP-068 — Exact-health damage kills the target
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** The next provisional behavior is exact-health depletion. `PlayerCharacter` currently treats only damage greater than current health as lethal, so 1000 damage leaves a newly created Hero at 0 health but still alive.
+- **Request or event:** Approve Element 4: an Orc dealing exactly 1000 damage to a newly created Hero leaves Hero at 0 health and dead. Use a new `DepletingDamage_bdd` approval test; leave self-damage, already-dead targets, and invalid damage amounts outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved Element 4 exactly as proposed: create the new public BDD source and expected output, run to the predicted 0 health/alive outside red, and pause before focused testing or production implementation.
+- **Automation evidence:** Boundary-value behavior deserves its own public example even when the eventual production change is a one-character comparison adjustment.
+
+### IP-069 — Confirm the Element 4 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `DepletingDamage_bdd` was created and run without changing production code. It failed exactly as predicted: expected Hero at 0 health/dead after exactly 1000 damage, but received Hero at 0 health/alive.
+- **Request or event:** Confirm that this is the expected outside red. After confirmation, proceed to the smallest focused boundary test and production implementation for Element 4 only.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact expected 0 health/alive outside red and authorized focused implementation of Element 4 only.
+- **Automation evidence:** Non-protected plan context again preserved run routing without triggering a redundant protected-metadata approval.
+
+### IP-070 — Commit the verified Element 4 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit review
+- **Trigger:** The exact six-path behavior candidate plus three allowed evidence paths passed the isolated behavior lane with receipt `sha256:bad988e1104b831cc42ad871ceb2d62500290adb2cd2470341546690159a3a03`. Complete status contains only those nine relevant paths plus unrelated `README.md` and `.idea` work. The pre-escalated exact staging command was blocked, as designed, on the protected BDD source and approved output.
+- **Request or event:** Confirm staging exactly the nine manifest paths, validating path equality, whitespace, and the signed staged receipt, then creating one Arlo `F` commit for exact-health damage killing the target. Keep `README.md` and `.idea` unstaged; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized exact nine-path staging, staged validation, and one Arlo `F` commit for verified Element 4. Unrelated `README.md` and `.idea` work remains excluded; no push is authorized.
+- **Automation evidence:** The repeatable pre-escalated checkpoint continues to eliminate sandbox-only approval retries, leaving the known stage-versus-commit capability split as the remaining friction.
+
+### IP-071 — Element 4 commit requires its separate protected operation
+
+- **Type:** Human checkpoint caused by protection machinery
+- **Stage:** Commit
+- **Trigger:** IP-070 authorized staging and committing the exact verified manifest. Exact staging and the staged-receipt check succeeded, but the committer contract's separate `git commit --only -- <exact paths>` operation names the protected BDD source and approved output, so the single-use staging authorization cannot cover it.
+- **Request or event:** Confirm the prepared escalated `git commit --only` command for exactly the same nine paths with Arlo message `F kill targets when health is depleted`. Refresh interaction evidence and the staged receipt first; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized the prepared exact nine-path `git commit --only` command with Arlo message `F kill targets when health is depleted`, after refreshing interaction evidence and the staged receipt. No push is authorized.
+- **Automation evidence:** This third consecutive identical stage-versus-commit checkpoint satisfies the working agreement's threshold for proposing versioned automation of a transaction-scoped commit capability.
