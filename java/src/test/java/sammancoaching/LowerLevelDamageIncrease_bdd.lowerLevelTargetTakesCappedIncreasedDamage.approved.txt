@@ -1,0 +1,7 @@
+Attacker: Attacker is level 7 with maximum health 1600.
+Target: Target is level 1 with maximum health 1000.
+Requested damage: 95.
+The six-level increase is capped at 50%.
+Fractional damage rounds down.
+Before: Target has 1000 health and is alive.
+After: Target has 858 health and is alive.

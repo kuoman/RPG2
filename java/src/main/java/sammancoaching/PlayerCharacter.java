@@ -19,18 +19,22 @@ public class PlayerCharacter {
         if (enemy == this) {
             return;
         }
-        var appliedDamage = damagePoints;
-        if (level > enemy.level) {
-            var levelAdvantage = level - enemy.level;
-            var reductionPercentage = Math.min(levelAdvantage * 10, 50);
-            appliedDamage = damagePoints * (100 - reductionPercentage) / 100;
-        }
+        var appliedDamage = damageAdjustedForLevelDifference(enemy, damagePoints);
         if (appliedDamage >= health) {
             health = 0;
             alive = false;
         } else {
             health -= appliedDamage;
         }
+    }
+
+    private int damageAdjustedForLevelDifference(PlayerCharacter enemy, int damagePoints) {
+        var levelDifference = enemy.level - level;
+        if (levelDifference == 0) {
+            return damagePoints;
+        }
+        var cappedLevelDifference = Math.max(-5, Math.min(levelDifference, 5));
+        return damagePoints * (100 + cappedLevelDifference * 10) / 100;
     }
 
     public void heal(int healthPoints) {

@@ -15,6 +15,8 @@
   "java/src/test/java/sammancoaching/HigherLevelDamageReduction_bdd.java",
   "java/src/test/java/sammancoaching/LethalDamage_bdd.java",
   "java/src/test/java/sammancoaching/LethalDamage_bdd.overkillDamageClampsHealthAndKillsTheTarget.approved.txt",
+  "java/src/test/java/sammancoaching/LowerLevelDamageIncrease_bdd.java",
+  "java/src/test/java/sammancoaching/LowerLevelDamageIncrease_bdd.lowerLevelTargetTakesCappedIncreasedDamage.approved.txt",
   "java/src/test/java/sammancoaching/MaximumHealing_bdd.healingStopsAtMaximumHealth.approved.txt",
   "java/src/test/java/sammancoaching/MaximumHealing_bdd.java",
   "java/src/test/java/sammancoaching/MaximumHealthGrowth_bdd.gainingALevelIncreasesMaximumHealth.approved.txt",

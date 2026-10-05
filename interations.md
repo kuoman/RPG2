@@ -1172,6 +1172,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:54f037c42562825aa6fdf3db2f183eee4aee561b34e4f42bd5b2605751d72c5c`. Twenty-three active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. No generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F reduce damage against higher-level targets`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:37f3182198160a1a0b10c7f99cbf6d3289297dfe96fdcd6c84dd1af645214427`. Commit `70478189adf65ebb1ed92416b86e56479b91657c` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F reduce damage against higher-level targets`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The exact candidate includes source, protected BDD assets, focused test, protected registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The persistent verifier permission avoided another host-filesystem interaction for both isolated lanes.
+
+### IP-117 — Continue to lower-level target damage increase
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 11 higher-level target damage reduction was committed and its CodeCraft run completed. The human requested continuation to the next provisional roadmap item.
+- **Request or event:** Assess increased damage when the target is below the attacker in level, reusing the already-approved 50% cap and round-down integer policy, without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `increase-damage-against-lower-level-target` and assessed Element 12 only. No BDD, expected output, focused test, production code, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next roadmap item, existing round-down decision, and symmetric cap example were deterministically identifiable, so no separate specification question was needed.
+
+### IP-118 — Define capped damage increase against a lower-level target
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** `receiveDamage` now reduces damage only when the target is above the attacker; a target below the attacker still receives the unchanged requested amount. The remaining Levels rule requires a 10% increase per attacker level advantage, capped at 50%, using the established round-down policy.
+- **Request or event:** Approve Element 12: create level 7 Attacker and level 1 Target during Arrange; invoke `target.receiveDamage(attacker, 95)` as the single Act; cap the six-level increase at 50%; round the resulting 142.5 damage down to 142; assert Target changes from 1000 to 858 health and remains alive. Add `LowerLevelDamageIncrease_bdd.lowerLevelTargetTakesCappedIncreasedDamage` and its approved output, then run it against unchanged production code. The predicted outside red is an approval mismatch whose received result reports Target at 905 health because only the requested 95 damage is currently applied. Stop for confirmation before focused tests or implementation. Factions, level eligibility, damage/faction progression, current-health refill, temporary level loss, and invalid damage amounts remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact Element 12 cap-boundary BDD, reuse of the established round-down policy, approved output, and focused outside-red run against unchanged production code. Focused tests, production implementation, and any private calculation refactoring remain unauthorized until the expected 905-health approval mismatch is confirmed.
+- **Automation evidence:** The cap-boundary story reuses the approved rounding policy and one domain Act. This second symmetric modifier creates concrete pressure for one cohesive private level-modifier calculation, but no collaborator, interface, or public API is warranted.
+
+### IP-119 — Confirm the Element 12 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `LowerLevelDamageIncrease_bdd` and expected output were created without changing production code. Its focused Maven run failed exactly as predicted: expected Target at 858 health/alive after capped and rounded increased damage, but received Target at 905 health/alive because only the requested 95 damage was applied.
+- **Request or event:** Confirm that the 905-health approval mismatch is the expected outside red. After confirmation, remove the generated received output, add the smallest focused tests for 10%-per-level increase, the 50% cap, and round-down behavior, then implement Element 12 and consolidate the now-symmetric calculation privately while green. Factions, level eligibility, damage/faction progression, current-health refill, temporary level loss, and invalid damage amounts remain later slices.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact 905-health outside red and authorized removal of its generated received output, the smallest focused tests for per-level increase, the 50% cap, and round-down behavior, production implementation of Element 12, and private consolidation of the symmetric level modifier while green. Factions, level eligibility, damage/faction progression, current-health refill, temporary level loss, and invalid damage amounts remain unauthorized.
+- **Automation evidence:** The public behavior failure isolates the missing lower-level target modifier while the matching higher-level reduction remains intact. The exact expected and received values make this checkpoint mechanically recognizable.
+
+### IP-120 — Commit the verified Element 12 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:3bf3f5b5ef2b085943e299b4c47667d0300c87a513beb127c4744f49314043fc`. Twenty-six active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Both level modifiers share one private signed calculation, and no generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F increase damage against lower-level targets`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending human response.
 - **Resulting authorization or action:** No commit or push is authorized until confirmation.
-- **Automation evidence:** The exact candidate includes source, protected BDD assets, focused test, protected registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The persistent verifier permission avoided another host-filesystem interaction for both isolated lanes.
+- **Automation evidence:** The exact candidate includes source, protected BDD assets, focused test, protected registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The same candidate/evidence shape and preflight ordering continue to avoid separate protected-file and commit approvals.
