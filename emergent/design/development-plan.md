@@ -38,7 +38,7 @@ Record the agreed behavior sequence here. Completed items are evidence-backed. U
 - [x] A character can leave a faction without affecting membership in other factions.
 - [x] Two characters sharing at least one faction are allies.
 - [x] Allies cannot damage one another.
-- [ ] Allies can heal one another.
+- [x] Allies can heal one another.
 - [ ] A character cannot heal a non-ally.
 
 ## 5. Magical objects

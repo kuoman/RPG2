@@ -1,6 +1,8 @@
 [
   "java/src/test/java/sammancoaching/AllyDamage_bdd.allyDamageIsIgnored.approved.txt",
   "java/src/test/java/sammancoaching/AllyDamage_bdd.java",
+  "java/src/test/java/sammancoaching/AllyHealing_bdd.allyCanHealADamagedCharacter.approved.txt",
+  "java/src/test/java/sammancoaching/AllyHealing_bdd.java",
   "java/src/test/java/sammancoaching/CharacterCreation_bdd.java",
   "java/src/test/java/sammancoaching/CharacterCreation_bdd.newCharacterStartsWithFullHealthAndAlive.approved.txt",
   "java/src/test/java/sammancoaching/CharacterDamage_bdd.damageReducesTargetHealth.approved.txt",

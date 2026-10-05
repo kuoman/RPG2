@@ -49,6 +49,10 @@ public class PlayerCharacter {
         health = Math.min(maximumHealth, health + healthPoints);
     }
 
+    public void heal(PlayerCharacter character, int healthPoints) {
+        character.heal(healthPoints);
+    }
+
     void gainLevel() {
         level += 1;
         maximumHealth += 100;

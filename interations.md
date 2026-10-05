@@ -1412,6 +1412,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:b73eef2eaa8fe139d733ced234400a9a08f7d52fb704483c053b25dad0278c5e`. Thirty-six active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F prevent allies from damaging one another`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:52e59804e8a92509979f9155d620cbe61e1de4a757f60a8db360b7bab5c02fa5`. Commit `65c970750b57347ac6d26b970ade2cf7e1f5d344` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F prevent allies from damaging one another`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production guard, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail. A combined read-only status/generated-output inspection was falsely blocked because its scan surfaced protected paths; retrying status and diff inspection without that protected scan succeeded and changed no repository state.
+
+### IP-141 — Continue to allied healing
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 17 preventing allied damage was committed and its CodeCraft run completed. The human requested continuation to the next provisional Factions item.
+- **Request or event:** Assess the rule that allies can heal one another, without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `heal-allied-character` and assessed Element 18 only. No BDD, expected output, focused test, production overload, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item is deterministic. `PlayerCharacter` already owns alliance recognition and living-health restoration. An ally-healing command can tell the target to use its existing health-restoration behavior without exposing health state or adding a collaborator. A combined read-only discovery command was falsely blocked because its test-directory scan surfaced protected assets; retrying with explicit non-protected paths succeeded and changed no repository state.
+
+### IP-142 — Define allied healing
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** Shared-faction characters are recognized as allies, and a living damaged character can restore its own health, but no character-to-character healing protocol exists.
+- **Request or event:** Approve Element 18: create Hero, Companion, Orc, and a named Knights faction; damage Hero from 1000 to 900 through Orc, join Hero and Companion to the same Knights identity, and capture Hero's printed state during Arrange; invoke `companion.heal(hero, 50)` as the single Act; assert Hero becomes 950 health and remains alive. Add `AllyHealing_bdd.allyCanHealADamagedCharacter` and its approved output, then run it against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacter.heal(PlayerCharacter, int)` does not exist. Stop for confirmation before focused tests or implementation. Non-ally healing denial, changes to self-healing, dead-target healing changes, faction equality, faction progression, damage behavior, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact allied-healing BDD, expected output, `heal(PlayerCharacter, int)` protocol, and predicted missing-overload compilation failure for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** The healer receives the public command and coordinates with the target; the target remains the health and life-state owner and can apply its existing bounded living-character restoration behavior. The positive shared-faction example establishes the new protocol without preempting the separately planned non-ally rejection rule. No interface, injection point, or composition root is required.
+
+### IP-143 — Confirm allied-healing outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `AllyHealing_bdd.allyCanHealADamagedCharacter` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm that Maven's test-compilation failure is the expected outside red: `AllyHealing_bdd.java:21` cannot apply `PlayerCharacter.heal` to `(PlayerCharacter, int)` because only `heal(int)` exists. Authorize the next slice: add one focused allied-healing test, record the same missing-overload red, then implement only `PlayerCharacter.heal(PlayerCharacter, int)` by telling the target to apply its existing `heal(int)` behavior. Do not add the non-ally rejection guard in Element 18; that remains the next separately approved behavior.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the expected missing-overload outside red and authorized the complete Element 18 slice: add one focused allied-healing test, record its compilation red, then add only `PlayerCharacter.heal(PlayerCharacter, int)` delegating restoration to the target's existing `heal(int)` behavior. The Element 19 non-ally rejection guard remains unauthorized.
+- **Automation evidence:** The compilation failure identifies the intended missing character-to-character protocol while the existing self-healing behavior remains unchanged. The target can retain all living-state and maximum-health decisions through delegation; an alliance-admission guard would prematurely implement Element 19 and is therefore excluded from this slice.
+
+### IP-144 — Commit the verified allied-healing behavior
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:4d8645e6364e69341ab6cfa4b5b77eeb00c9d07c15806d97d66c0849ae0f7621`. Thirty-eight active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow allies to heal one another`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending human response.
 - **Resulting authorization or action:** No staging or commit is authorized until the human confirms the exact transaction identity.
-- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production guard, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail. A combined read-only status/generated-output inspection was falsely blocked because its scan surfaced protected paths; retrying status and diff inspection without that protected scan succeeded and changed no repository state.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production overload, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
