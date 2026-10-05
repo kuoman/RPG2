@@ -625,3 +625,53 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Response:** `a`
 - **Resulting authorization or action:** Authorized the prepared exact nine-path `git commit --only` command with Arlo message `F reduce target health when damaged`, after refreshing interaction evidence and the staged receipt. No push is authorized.
 - **Automation evidence:** One human commit checkpoint should mint a transaction capability covering both exact staging and exact path-limited commit, rather than requiring one single-use protected approval per internal Git operation.
+
+### IP-062 — Continue to the next planned behavior
+
+- **Type:** Human instruction
+- **Stage:** Before run creation
+- **Trigger:** After Element 2 was committed and its run completed, the human requested `continue`.
+- **Request or event:** Resume CodeCraft state and assess the next provisional plan item without creating tests or production behavior before its design checkpoint.
+- **Response:** `codecraft_run.py resume --json` returned `{"active": false}`. The plan names lethal damage and death next; `main` is one committed Element 2 change ahead of `origin/main`, while unrelated `README.md` and `.idea` work remains untouched.
+- **Resulting authorization or action:** Assessment only. No new run, test, protected asset, or production code has been created or changed.
+- **Automation evidence:** A completed-run continuation command could select the next provisional plan row and generate its design assessment while preserving the human approval boundary.
+
+### IP-063 — Overkill damage clamps health and kills the target
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** The next provisional behavior is lethal damage and death. `PlayerCharacter` already owns health and life state, but subtracting 1500 damage from a new character currently produces -500 health while leaving it alive.
+- **Request or event:** Approve Element 3: an Orc dealing 1500 damage to a newly created Hero clamps Hero's health to 0 and marks Hero dead. Use a new `LethalDamage_bdd` approval test; leave exact-health depletion, self-damage, already-dead targets, and invalid damage amounts outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved Element 3 exactly as proposed: create the new public BDD source and expected output, run to the predicted `-500` health/alive outside red, and pause before focused testing or production implementation.
+- **Automation evidence:** Stable element numbering and explicit excluded cases keep a broad requirement such as “death” decomposed into reviewable, independently verified behavior slices.
+
+### IP-064 — Confirm the Element 3 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `LethalDamage_bdd` was created and run without changing production code. It failed exactly as predicted: expected Hero at 0 health/dead after 1500 damage, but received Hero at -500 health/alive.
+- **Request or event:** Confirm that this is the expected outside red. After confirmation, proceed to the smallest focused test and production implementation for Element 3 only.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact expected `-500` health/alive outside red and authorized focused implementation of Element 3 only.
+- **Automation evidence:** Using the plan rather than protected file paths as run context avoided the redundant protected-metadata checkpoint observed in Element 2 while preserving complete operational routing.
+
+### IP-065 — Commit the verified Element 3 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit review
+- **Trigger:** The exact six-path behavior candidate plus three allowed evidence paths passed the isolated behavior lane with receipt `sha256:747c918c194687b7fc448fb2fef8e2b29057212363bc2f4bd148a684199f2302`. Complete status contains only those nine relevant paths plus unrelated `README.md` and `.idea` work. The exact staging command was prepared with required Git-metadata escalation and blocked, as designed, on the new protected BDD source and approved output.
+- **Request or event:** Confirm staging exactly the nine manifest paths, validating path equality, whitespace, and the signed staged receipt, then creating one Arlo `F` commit for overkill damage clamping health and killing the target. Keep `README.md` and `.idea` unstaged; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized exact nine-path staging, staged validation, and one Arlo `F` commit for verified Element 3. Unrelated `README.md` and `.idea` work remains excluded; no push is authorized.
+- **Automation evidence:** Element 3 reused the improved pre-escalated staging checkpoint, avoiding the earlier separate sandbox retry approval.
+
+### IP-066 — Element 3 commit requires its separate protected operation
+
+- **Type:** Human checkpoint caused by protection machinery
+- **Stage:** Commit
+- **Trigger:** IP-065 authorized staging and committing the exact verified manifest. Exact staging and the staged-receipt check succeeded, but the committer contract's separate `git commit --only -- <exact paths>` operation names the protected BDD source and approved output, so the single-use staging authorization cannot cover it.
+- **Request or event:** Confirm the prepared escalated `git commit --only` command for exactly the same nine paths with Arlo message `F kill targets on overkill damage`. Refresh interaction evidence and the staged receipt first; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized the prepared exact nine-path `git commit --only` command with Arlo message `F kill targets on overkill damage`, after refreshing interaction evidence and the staged receipt. No push is authorized.
+- **Automation evidence:** This is the second consecutive behavior increment proving the need for one transaction-scoped capability covering verified staging plus exact commit.
