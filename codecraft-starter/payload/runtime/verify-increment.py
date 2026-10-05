@@ -168,11 +168,10 @@ def overlay_source(repository, worktree, paths, source, reference=None):
 def isolated_fingerprint(repository, base, paths, source, patterns, reference=None):
     temporary = tempfile.TemporaryDirectory(prefix="codecraft-fingerprint-")
     worktree = Path(temporary.name) / "repository"
-    checkout = reference if source == "committed" else base
+    checkout = base
     try:
         subprocess.run(["git", "worktree", "add", "--detach", str(worktree), checkout], cwd=repository, check=True, capture_output=True)
-        if source != "committed":
-            overlay_source(repository, worktree, paths, source, reference)
+        overlay_source(repository, worktree, paths, source, reference)
         return fingerprint(worktree, patterns)
     finally:
         if worktree.exists():

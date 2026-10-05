@@ -1,6 +1,6 @@
 # CodeCraft Starter
 
-Version: 0.5.1
+Version: 0.5.2
 
 CodeCraft Starter can create a minimal Java/Maven build in a build-less directory or install a repository-local collaborative development workflow into an existing Maven project. The target repository receives its own AI instructions, project agreement, skills, protection hook, active-run state, review ledger, and isolated completion verifier. It does not depend on this RPG Combat repository after installation.
 

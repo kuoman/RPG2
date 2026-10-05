@@ -862,6 +862,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The documentation-only roadmap candidate passed the isolated documentation lane with receipt `sha256:67174e63a00dce2a40ffa2b53affbf9ef1398f5b3136440ba7c8a0f2fa569a7c`. The exact candidate is `emergent/design/development-plan.md`; `interations.md` is allowed evidence. The user's unrelated `README.md` and `.idea` work remains excluded.
 - **Request or event:** Confirm one receipt-bound transaction for those two exact paths with Arlo message `d expand development roadmap`. Validate before and after the path-limited commit; do not push. The exact transaction identity will be presented in the human prompt.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized transaction `sha256:396827ab1ebba3102204cbfd5a2957ef9b62440eb7334b2001b81141861741cc`. It created exact two-path commit `3e5619b`, and the staged receipt check passed. The helper then stopped because the post-commit material-input fingerprint unexpectedly included the Markdown evidence path. No push occurred; the commit was not reset, amended, or otherwise rewritten.
+- **Automation evidence:** The documentation lane exposed an inconsistency in the new transaction boundary: staged fingerprinting checks the base plus candidate, while committed fingerprinting checks the full commit and therefore treats Markdown evidence as material only after commit.
+
+### IP-086 — Repair documentation evidence fingerprinting
+
+- **Type:** Human workflow-design checkpoint
+- **Stage:** Recovery
+- **Trigger:** Commit `3e5619b` contains exactly the approved roadmap and interaction paths, but its required post-commit receipt check failed after the commit because `isolated_fingerprint` checks out the whole committed reference instead of the receipt base before overlaying candidate content. This makes documentation evidence affect only the committed fingerprint.
+- **Request or event:** Approve CodeCraft Starter 0.5.2 as a patch release: add a clean-room regression test for Markdown evidence, make committed fingerprinting use the receipt base plus committed candidate content just like staged fingerprinting, upgrade installed machinery through the distribution, and rerun the original receipt check against existing commit `3e5619b`. Do not reset, amend, recommit, implement behavior, or push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized the CodeCraft Starter 0.5.2 regression test, verifier patch, distribution upgrade, and recheck of existing commit `3e5619b`. Resetting, amending, recommitting the roadmap, behavior changes, and pushing remain unauthorized.
+- **Automation evidence:** A successful patch will make staged and committed fingerprint semantics identical while preserving exact commit-path checks and evidence allowlisting.
+
+### IP-087 — Install CodeCraft Starter 0.5.2 into this repository
+
+- **Type:** Human protected-workflow checkpoint
+- **Stage:** Distribution upgrade
+- **Trigger:** The 0.5.2 distribution package is healthy. Its clean-room regression reproduces the post-commit Markdown-evidence failure and passes with the approved base-plus-candidate fingerprint repair; the full lane passes 11 Java tests with one intentional skip and all 55 Starter tests.
+- **Request or event:** Confirm the exact project-local upgrade command `codecraft-starter/bin/codecraft_starter.py upgrade --target .`. The distribution may update only signed, unchanged managed files and the installation record; it must preserve project-owned files, behavior, history, and unrelated `README.md` and `.idea` work. Afterward, rerun the original receipt check against existing commit `3e5619b`; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Completed the exact project-local 0.5.2 distribution upgrade. It updated the managed verifier and installation record without changing roadmap history, RPG behavior, or unrelated work. The existing commit `3e5619b` was rechecked in place; no amend, recommit, reset, or push occurred.
+- **Automation evidence:** Package check and the complete Maven verification lane pass for distribution version 0.5.2. The installed doctor reports `CodeCraft Starter 0.5.2: healthy`, and the original signed roadmap receipt reports `verification receipt is current` against exact two-path commit `3e5619b`.
+
+### IP-088 — Commit the CodeCraft Starter 0.5.2 repair
+
+- **Type:** Human commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The isolated automation lane passed for the exact six-file workflow candidate with receipt candidate digest `sha256:d8634b5c5146fbb0cd6b1671d8813a89f8a21fd6b1c026e86b103c25054eb741`. Eleven Java tests pass with one intentional skip, all 55 Starter tests pass, both packaged skills validate, and the installed verifier matches the distribution payload. The two evidence paths document the failure and interactions; unrelated `README.md` and `.idea` work remains excluded.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the six candidate paths and two evidence paths with Arlo message `B fix documentation evidence fingerprints`. Validate before and after the path-limited commit; do not push. The exact transaction identity will be presented in the human prompt.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized transaction `sha256:10623c6e69ba55292ac45565fa70a3788495f996e538343639bde7f61c8b49bc`. The exact execute command was then blocked before staging because the protection hook independently requires a standalone checkpoint for `.codecraft/installation.json`. No commit or push occurred.
+- **Automation evidence:** The 0.5.2 package and installed workflow are healthy, and the unchanged roadmap commit now passes its original post-commit receipt check.
+
+### IP-089 — Confirm the protected installation-record commit
+
+- **Type:** Human redundant protected-command checkpoint
+- **Stage:** Commit execution
+- **Trigger:** The human approved the exact eight-path receipt-bound workflow transaction, but its first execute attempt was blocked before staging because `.codecraft/installation.json` is protected. The transaction helper already binds that path, its content, the signed receipt, the other seven paths, and the commit message.
+- **Request or event:** Reconfirm the recalculated exact transaction after this interaction evidence is included. Execute the same path-limited `B fix documentation evidence fingerprints` commit; leave unrelated work unstaged and do not push.
 - **Response:** Pending.
-- **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction is presented and the human answers with `approve`, `a`, `yes`, or `y`.
-- **Automation evidence:** The documentation lane proves the roadmap change is isolated from executable behavior and workflow machinery.
+- **Resulting authorization or action:** No staging, commit, or push is authorized until the human answers with `approve`, `a`, `yes`, or `y` after the blocked exact command.
+- **Automation evidence:** This checkpoint is caused by overlapping transaction approval and protected-path approval mechanisms; it is a concrete candidate for reducing duplicate interactions while preserving an exact single-use boundary.

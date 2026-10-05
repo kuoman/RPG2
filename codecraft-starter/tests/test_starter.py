@@ -384,7 +384,7 @@ class StarterDistributionTest(unittest.TestCase):
     def test_should_install_a_self_contained_java_maven_workflow(self):
         result = self.distribution.install(self.target, "Sample Service")
 
-        self.assertEqual("installed CodeCraft Starter 0.5.1", result)
+        self.assertEqual("installed CodeCraft Starter 0.5.2", result)
         self.assertTrue((self.target / ".agents/skills/codecraft/SKILL.md").is_file())
         self.assertTrue((self.target / ".agents/skills/committer/SKILL.md").is_file())
         self.assertTrue((self.target / ".codecraft/bin/codecraft_doctor.py").is_file())
@@ -400,7 +400,7 @@ class StarterDistributionTest(unittest.TestCase):
         self.assertIn(".claude/rules/always.md", (self.target / "AGENTS.md").read_text())
         self.assertIn(".codecraft/state/", (self.target / ".gitignore").read_text())
         installation = json.loads((self.target / ".codecraft/installation.json").read_text())
-        self.assertEqual("0.5.1", installation["version"])
+        self.assertEqual("0.5.2", installation["version"])
         self.assertEqual("java-maven", installation["profile"])
         self.assertEqual([], Doctor(self.target).problems())
 
@@ -409,7 +409,7 @@ class StarterDistributionTest(unittest.TestCase):
 
         result = self.distribution.install(self.target, "Sample Service")
 
-        self.assertEqual("CodeCraft Starter 0.5.1 is already installed", result)
+        self.assertEqual("CodeCraft Starter 0.5.2 is already installed", result)
 
     def test_should_preserve_project_owned_files_during_an_upgrade(self):
         self.distribution.install(self.target, "Sample Service")
@@ -422,7 +422,7 @@ class StarterDistributionTest(unittest.TestCase):
 
         result = self.distribution.upgrade(self.target)
 
-        self.assertEqual("CodeCraft Starter 0.5.1 is current", result)
+        self.assertEqual("CodeCraft Starter 0.5.2 is current", result)
         self.assertIn("Local agreement.", agreement.read_text())
         self.assertIn('"local"', review_ledger.read_text())
         self.assertIn("Local emoji convention.", conventions.read_text())
@@ -572,8 +572,13 @@ class StarterDistributionTest(unittest.TestCase):
         subprocess.run(["git", "commit", "--quiet", "-m", "baseline"], cwd=self.target, check=True)
         note = self.target / "notes.md"
         note.write_text("clean room\n")
+        interaction_log = self.target / "automation/commit-interaction-evidence.md"
+        interaction_log.parent.mkdir(parents=True, exist_ok=True)
+        interaction_log.write_text("commit interaction evidence\n")
         candidate = self.target.parent / "candidate.paths"
         candidate.write_text("notes.md\n")
+        evidence = self.target.parent / "evidence.paths"
+        evidence.write_text("automation/commit-interaction-evidence.md\n")
         verifier = self.target / ".codecraft/bin/verify_increment.py"
 
         verification = subprocess.run(
@@ -583,15 +588,15 @@ class StarterDistributionTest(unittest.TestCase):
             text=True,
         )
         self.assertEqual(0, verification.returncode, verification.stderr)
-        subprocess.run(["git", "add", "notes.md"], cwd=self.target, check=True)
+        subprocess.run(["git", "add", "notes.md", "automation/commit-interaction-evidence.md"], cwd=self.target, check=True)
         subprocess.run(
-            [str(verifier), "documentation", "--candidate-file", str(candidate), "--check", "--staged"],
+            [str(verifier), "documentation", "--candidate-file", str(candidate), "--evidence-file", str(evidence), "--check", "--staged"],
             cwd=self.target,
             check=True,
         )
-        subprocess.run(["git", "commit", "--quiet", "-m", "d Add note", "--only", "--", "notes.md"], cwd=self.target, check=True)
+        subprocess.run(["git", "commit", "--quiet", "-m", "d Add note", "--only", "--", "notes.md", "automation/commit-interaction-evidence.md"], cwd=self.target, check=True)
         result = subprocess.run(
-            [str(verifier), "documentation", "--candidate-file", str(candidate), "--check", "--check-commit", "HEAD"],
+            [str(verifier), "documentation", "--candidate-file", str(candidate), "--evidence-file", str(evidence), "--check", "--check-commit", "HEAD"],
             cwd=self.target,
             check=True,
             capture_output=True,
@@ -797,7 +802,7 @@ class StarterDistributionTest(unittest.TestCase):
         removed_entry = definition["managed"].pop()
         definition["migrations"] = [
             {
-                "from": "0.5.1",
+                "from": "0.5.2",
                 "to": "0.6.0",
                 "removeManaged": [removed_entry["target"]],
             }
@@ -881,7 +886,7 @@ class StarterDistributionTest(unittest.TestCase):
 
         result = self.distribution.upgrade(moved)
 
-        self.assertEqual("CodeCraft Starter 0.5.1 is current", result)
+        self.assertEqual("CodeCraft Starter 0.5.2 is current", result)
         self.assertTrue((moved / ".agents/skills/codecraft/SKILL.md").is_file())
 
     def test_should_reject_non_repository_and_escaping_project_paths_before_writing(self):
