@@ -34,7 +34,7 @@ Record the agreed behavior sequence here. Completed items are evidence-backed. U
 ## 4. Factions and allies
 
 - [x] A new character belongs to no faction.
-- [ ] A character can join one or more factions.
+- [x] A character can join one or more factions.
 - [ ] A character can leave a faction without affecting membership in other factions.
 - [ ] Two characters sharing at least one faction are allies.
 - [ ] Allies cannot damage one another.

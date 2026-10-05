@@ -54,6 +54,10 @@ public class PlayerCharacter {
         maximumHealth += 100;
     }
 
+    public void join(Faction faction) {
+        factions.add(faction);
+    }
+
     public boolean belongsTo(Faction faction) {
         return factions.contains(faction);
     }

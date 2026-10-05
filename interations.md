@@ -1252,6 +1252,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact eight-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:5d75a246a5b572f19f401d4b7e116d9274a17aa8a9d4431049a8f84e2c757b18`. Twenty-eight active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those ten relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F start characters without factions`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:0910274194d0e8a5d7861ddb5de60adb97e5ddfc7e84cebdb121c6b08713e766`. Commit `812ac03f1d7e914237929724033fee9fb9674e0d` contains exactly the eight behavior candidate paths and two evidence paths with Arlo message `F start characters without factions`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, two production paths, two protected BDD assets, and the focused test. The feature artifact and `interations.md` are evidence-only so recording the receipt cannot invalidate the verified candidate digest.
+
+### IP-125 — Continue to joining factions
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 13 empty initial faction membership was committed and its CodeCraft run completed. The human requested continuation to the next provisional Factions item.
+- **Request or event:** Assess the rule that a character can join one or more factions without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `join-character-factions` and assessed Element 14 only. No BDD, expected output, focused test, production method, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item is deterministic. The existing identity-based `Faction` objects and encapsulated `PlayerCharacter` membership set provide the required state boundary; only a joining command is missing.
+
+### IP-126 — Define joining more than one faction
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** `PlayerCharacter` owns an initially empty membership set and can answer `belongsTo`, but exposes no command that changes membership. The requirements allow one character to belong to one or more factions.
+- **Request or event:** Approve Element 14: create Hero plus named Knights and Mages factions; join Knights during Arrange; invoke `hero.join(mages)` as the single Act; assert Hero still belongs to Knights and now belongs to Mages. Add `CharacterJoinsFactions_bdd.characterCanJoinMoreThanOneFaction` and its approved output, then run it against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacter.join(Faction)` does not exist. Stop for confirmation before focused tests or implementation. Leaving, equality between separately constructed same-name factions, allies, ally damage/healing, non-ally healing, faction-based progression, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact multiple-membership BDD, expected output, and `join(Faction)` protocol for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** `PlayerCharacter` remains the receiver, membership information owner, decision owner, and state owner. `Faction` supplies identity and name. The public protocols are `join(Faction)` for the state change and `belongsTo(Faction)` for observation; no dependency abstraction, injection point, or composition root is required.
+
+### IP-127 — Confirm joining-factions outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `CharacterJoinsFactions_bdd.characterCanJoinMoreThanOneFaction` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm that Maven's test-compilation failures are the expected outside red: `CharacterJoinsFactions_bdd.java:13` and `:16` cannot find `PlayerCharacter.join(Faction)`. Authorize the next slice: add one focused test showing an existing membership survives a second join, record its red, then implement only `PlayerCharacter.join(Faction)` by adding the supplied faction to the character's existing membership set.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the expected missing-`join(Faction)` outside red and authorized the complete next slice: add one focused multiple-membership test, record its red, then implement only `PlayerCharacter.join(Faction)` by adding the supplied faction to the existing membership set.
+- **Automation evidence:** Both compilation errors identify the same intended missing command, while the existing `Faction` identity and `belongsTo` observation protocols compile. Production sources remain unchanged.
+
+### IP-128 — Commit the verified faction-joining behavior
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:ff238c9f9cd90f2d0d86b5bfaeeabb4105adc5478dfd073e38afb78265f02c53`. Thirty active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow characters to join factions`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending human response.
 - **Resulting authorization or action:** No staging, commit, or push is authorized until confirmation.
-- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, two production paths, two protected BDD assets, and the focused test. The feature artifact and `interations.md` are evidence-only so recording the receipt cannot invalidate the verified candidate digest.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production command, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.

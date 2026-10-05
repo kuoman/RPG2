@@ -1,0 +1,3 @@
+Hero joins Knights, then Mages.
+Hero belongs to Knights: true.
+Hero belongs to Mages: true.
