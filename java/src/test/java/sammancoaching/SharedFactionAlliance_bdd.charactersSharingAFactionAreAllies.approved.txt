@@ -1,0 +1,2 @@
+Hero and Companion share Knights.
+Hero and Companion are allies: true.

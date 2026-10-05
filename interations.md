@@ -1296,6 +1296,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Resulting authorization or action:** Authorized and completed transaction `sha256:4e6c9388ffc1f7bda5030368b6fffaa328db615952929fac86e20b8282893cb1`. Commit `b8702ccb309e3501137187f6452020d99b6e6179` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F allow characters to join factions`. Both staged and committed receipt checks passed; no push occurred.
 - **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production command, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
 
+### IP-133 — Continue to shared-faction allies
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 15 faction leaving was committed and its CodeCraft run completed. The human requested continuation to the next provisional Factions item.
+- **Request or event:** Assess the rule that two characters sharing at least one faction are allies, without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `recognize-shared-faction-allies` and assessed Element 16 only. No BDD, expected output, focused test, production query, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item is deterministic. Each `PlayerCharacter` already owns an encapsulated identity-based membership set, so alliance can be answered by one character comparing memberships with another without exposing either collection.
+
+### IP-134 — Define shared-faction alliance
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** Characters can join, leave, and query faction membership, but there is no domain query that identifies allies. The requirements define characters sharing a faction as allies.
+- **Request or event:** Approve Element 16: create Hero, Companion, and named Knights; join both characters to the same Knights object during Arrange; invoke `hero.isAlliedWith(companion)` as the single Act; assert the result is true. Add `SharedFactionAlliance_bdd.charactersSharingAFactionAreAllies` and its approved output, then run it against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacter.isAlliedWith(PlayerCharacter)` does not exist. Stop for confirmation before focused tests or implementation. Self-alliance, equality between separately constructed same-name factions, explicit no-shared-faction characterization, ally damage/healing, non-ally healing, lifetime faction history/progression, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact shared-faction ally BDD, expected output, and `isAlliedWith(PlayerCharacter)` protocol for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** The receiver `PlayerCharacter` owns its memberships and the alliance decision; the other `PlayerCharacter` owns the comparison memberships. `Faction` supplies shared identity. The public protocol is `isAlliedWith(PlayerCharacter)`; no collection exposure, dependency abstraction, injection point, or composition root is required.
+
+### IP-135 — Confirm shared-faction alliance outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `SharedFactionAlliance_bdd.charactersSharingAFactionAreAllies` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm that Maven's test-compilation failure is the expected outside red: `SharedFactionAlliance_bdd.java:17` cannot find `PlayerCharacter.isAlliedWith(PlayerCharacter)`. Authorize the next slice: add one focused shared-faction test, record its red, then implement only `isAlliedWith` by checking whether the two characters' encapsulated membership sets share at least one exact `Faction` identity.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the expected missing-`isAlliedWith` outside red and authorized the complete next slice: add one focused shared-faction test, record its red, then implement only the membership-intersection query over the two characters' encapsulated faction sets.
+- **Automation evidence:** The compilation failure identifies the intended missing query, while the established faction join protocol compiles. Production sources remain unchanged.
+
+### IP-136 — Commit the verified shared-faction alliance behavior
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:254f62c9acda9af055d701b69dc136ac2b8d4ba66f4046275c7563150bf2515d`. Thirty-four active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F recognize shared-faction allies`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** Pending human response.
+- **Resulting authorization or action:** No staging, commit, or push is authorized until confirmation.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production query, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
+
 ### IP-129 — Continue to leaving a faction
 
 - **Type:** Human continuation
@@ -1332,6 +1372,6 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:e52d5d9cfde75f48a9b2af3fd56267098d7203b978c757688b5abad581ab193b`. Thirty-two active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow characters to leave factions`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
-- **Response:** Pending human response.
-- **Resulting authorization or action:** No staging, commit, or push is authorized until confirmation.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:63bdf2406c1daad22adc3ce442fae7502553ef1941fcc78f595055f50e242aef`. Commit `5e4400fbff194540bdbf90e17601c1faf3eaf1af` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F allow characters to leave factions`. Both staged and committed receipt checks passed; no push occurred.
 - **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production command, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.

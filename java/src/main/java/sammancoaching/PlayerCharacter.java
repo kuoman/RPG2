@@ -66,6 +66,10 @@ public class PlayerCharacter {
         return factions.contains(faction);
     }
 
+    public boolean isAlliedWith(PlayerCharacter character) {
+        return factions.stream().anyMatch(character.factions::contains);
+    }
+
     Status status() {
         return new Status(name, health, alive, level, maximumHealth);
     }
