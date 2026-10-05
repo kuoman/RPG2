@@ -565,3 +565,63 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Response:** No additional human response required; IP-051 and IP-052 already authorized the exact evidence path and single commit, while automated sandbox policy permitted the narrow Git metadata operations.
 - **Resulting authorization or action:** The evidence-only amendment retained the Arlo message and exact 12-path scope, and the dedicated post-commit receipt check reported `verification receipt is current`. This final interaction entry will be folded into the same commit and the post-commit check repeated before the run is finished; no push is authorized.
 - **Automation evidence:** Interaction logging that is itself commit evidence needs a transaction boundary or post-run sidecar so recording commit-time tool interactions does not force iterative amend-and-reverify cycles.
+
+### IP-056 — Next-behavior assessment kickoff
+
+- **Type:** Human instruction
+- **Stage:** Before run creation
+- **Trigger:** The human requested that the project-local CodeCraft workflow assess the next planned behavior without implementing until the required checkpoint.
+- **Request or event:** Read repository instructions, resume durable run state, inspect the plan, responsibility map, current implementation, and tests, and prepare the next BDD design checkpoint.
+- **Response:** The assistant loaded the required CodeCraft sources. `codecraft_run.py resume --json` returned `{"active": false}`; `main` is synchronized with `origin/main`. Unrelated local `README.md` and `.idea` work remains untouched.
+- **Resulting authorization or action:** Assessment only. No run, test, protected asset, or production behavior has been created or changed.
+- **Automation evidence:** A behavior preflight should summarize active-run, branch, baseline, and unrelated-work state in one command before design begins.
+
+### IP-057 — Damage-reduces-target-health design checkpoint
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** The next provisional plan item is damage behavior. The current `PlayerCharacter` owns health and life state and already receives `receiveDamage(attacker, damagePoints)`, but the method is a no-op.
+- **Request or event:** Approve Element 2: an Orc dealing 100 damage to a newly created Hero changes the Hero from 1000 health/alive to 900 health/alive. Use a new `CharacterDamage_bdd` approval test and leave death, overkill clamping, self-damage, healing, and levels outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved Element 2 exactly as proposed: create the new public BDD source and expected output, run to the predicted no-op outside red, and pause for confirmation before any focused test or production implementation.
+- **Automation evidence:** A future design-checkpoint command could render the approval grid, persist its stable element number, and initialize run state only after a configured alias approves it.
+
+### IP-058 — Confirm the Element 2 outside red
+
+- **Type:** Human outside-red and protected-metadata checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `CharacterDamage_bdd` was created and run without changing production code. It failed exactly as predicted: expected Hero at 900 health after 100 damage, but received Hero at 1000 health because `receiveDamage` remains a no-op. The run checkpoint was recorded, but advancing run metadata while naming the protected BDD paths was blocked by the protection hook and prepared an exact digest.
+- **Request or event:** Confirm that this is the expected outside red and authorize the prepared run-state transition. After confirmation, proceed to the smallest focused test and production implementation for Element 2 only.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact expected outside red and authorized the prepared run-state transition plus focused implementation of Element 2 only.
+- **Automation evidence:** Run-state commands that only reference protected paths as context should be classified as metadata operations, not protected-file mutations; the required outside-red confirmation can otherwise be needlessly duplicated.
+
+### IP-059 — Completion-lane permission review timed out once
+
+- **Type:** Automated permission interaction
+- **Stage:** Verification
+- **Trigger:** The exact Element 2 verifier requested its known narrow permission to create an isolated Git worktree, but the automatic approval review did not finish before its deadline. The command did not run during the timed-out attempt.
+- **Request or event:** Retry the unchanged verifier once, as permitted by the tool response.
+- **Response:** The automatic sandbox reviewer permitted the retry; no human response was required.
+- **Resulting authorization or action:** The isolated lane passed with four active Java tests, one explicitly deferred legacy seed skipped, and all 53 Starter tests passing. Initial receipt: `sha256:39b7a471b3364b937498797166fa4259b2bf740caad647288c9f3df1733e7e48`.
+- **Automation evidence:** Permission-review timeouts should return a resumable request identifier or automatically retry idempotent, exact worktree verification once.
+
+### IP-060 — Commit the verified Element 2 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit review
+- **Trigger:** The exact six-path behavior candidate plus three allowed evidence paths passed the isolated behavior lane with receipt `sha256:da7a712ed851eb2ebbdd884267d9f0e7ee48cacbf723327ba4d3a2801a128c03`. The complete status contains only those nine relevant paths plus unrelated `README.md` and `.idea` work. The exact staging command was prepared with required Git-metadata escalation up front and blocked, as designed, on the new protected BDD source and approved output.
+- **Request or event:** Confirm staging exactly the nine manifest paths, validating path equality, whitespace, and the signed staged receipt, then creating one Arlo `F` commit for damage reducing the target's health. Keep `README.md` and `.idea` unstaged; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized exact nine-path staging, staged validation, and one Arlo `F` commit for verified Element 2. Unrelated `README.md` and `.idea` work remains excluded; no push is authorized.
+- **Automation evidence:** Preparing the escalated semantic staging transaction before the human checkpoint avoids the prior duplicate approval caused solely by `.git/index.lock` sandbox escalation.
+
+### IP-061 — Path-limited commit consumed a second protected operation
+
+- **Type:** Human checkpoint caused by protection machinery
+- **Stage:** Commit
+- **Trigger:** IP-060 authorized both staging and committing the exact verified manifest. Exact staging and the staged-receipt check succeeded, but the committer contract requires `git commit --only -- <exact paths>`. Because that separate Git operation names the protected BDD source and approved output, the single-use staging authorization cannot cover it and the protection hook blocked the prepared commit command.
+- **Request or event:** Confirm the now-prepared escalated `git commit --only` command for exactly the same nine verified paths with Arlo message `F reduce target health when damaged`. Refresh the already-approved interaction evidence and staged receipt first; do not push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized the prepared exact nine-path `git commit --only` command with Arlo message `F reduce target health when damaged`, after refreshing interaction evidence and the staged receipt. No push is authorized.
+- **Automation evidence:** One human commit checkpoint should mint a transaction capability covering both exact staging and exact path-limited commit, rather than requiring one single-use protected approval per internal Git operation.

@@ -1,5 +1,7 @@
 [
   "java/src/test/java/sammancoaching/CharacterCreation_bdd.java",
   "java/src/test/java/sammancoaching/CharacterCreation_bdd.newCharacterStartsWithFullHealthAndAlive.approved.txt",
+  "java/src/test/java/sammancoaching/CharacterDamage_bdd.damageReducesTargetHealth.approved.txt",
+  "java/src/test/java/sammancoaching/CharacterDamage_bdd.java",
   "java/src/test/java/sammancoaching/PlayerCharacterTest.dealDamage.approved.txt"
 ]

@@ -5,4 +5,5 @@ Record the agreed behavior sequence here. Treat unchecked items as provisional u
 ## Behaviors
 
 - [x] A newly created character starts with 1000 health and is alive.
-- [ ] Define damage behavior collaboratively.
+- [x] Receiving 100 damage reduces a living target from 1000 health to 900.
+- [ ] Define lethal damage and death collaboratively.

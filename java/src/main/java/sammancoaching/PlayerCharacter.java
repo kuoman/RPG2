@@ -12,7 +12,7 @@ public class PlayerCharacter {
     }
 
     public void receiveDamage(PlayerCharacter enemy, int damagePoints) {
-
+        health -= damagePoints;
     }
 
     Status status() {
