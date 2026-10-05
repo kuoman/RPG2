@@ -1,0 +1,3 @@
+Hero leaves Knights.
+Hero belongs to Knights: false.
+Hero belongs to Mages: true.

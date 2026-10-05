@@ -35,7 +35,7 @@ Record the agreed behavior sequence here. Completed items are evidence-backed. U
 
 - [x] A new character belongs to no faction.
 - [x] A character can join one or more factions.
-- [ ] A character can leave a faction without affecting membership in other factions.
+- [x] A character can leave a faction without affecting membership in other factions.
 - [ ] Two characters sharing at least one faction are allies.
 - [ ] Allies cannot damage one another.
 - [ ] Allies can heal one another.

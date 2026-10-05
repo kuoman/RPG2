@@ -7,6 +7,8 @@
   "java/src/test/java/sammancoaching/CharacterHealing_bdd.java",
   "java/src/test/java/sammancoaching/CharacterJoinsFactions_bdd.characterCanJoinMoreThanOneFaction.approved.txt",
   "java/src/test/java/sammancoaching/CharacterJoinsFactions_bdd.java",
+  "java/src/test/java/sammancoaching/CharacterLeavesFaction_bdd.java",
+  "java/src/test/java/sammancoaching/CharacterLeavesFaction_bdd.leavingOneFactionPreservesOtherMemberships.approved.txt",
   "java/src/test/java/sammancoaching/CharacterLevel_bdd.java",
   "java/src/test/java/sammancoaching/CharacterLevel_bdd.newCharacterStartsAtLevelOneWithMaximumHealth.approved.txt",
   "java/src/test/java/sammancoaching/DeadCharacterHealing_bdd.deadCharacterCannotHealItself.approved.txt",

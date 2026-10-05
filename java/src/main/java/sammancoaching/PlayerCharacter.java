@@ -58,6 +58,10 @@ public class PlayerCharacter {
         factions.add(faction);
     }
 
+    public void leave(Faction faction) {
+        factions.remove(faction);
+    }
+
     public boolean belongsTo(Faction faction) {
         return factions.contains(faction);
     }

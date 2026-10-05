@@ -1292,6 +1292,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:ff238c9f9cd90f2d0d86b5bfaeeabb4105adc5478dfd073e38afb78265f02c53`. Thirty active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow characters to join factions`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:4e6c9388ffc1f7bda5030368b6fffaa328db615952929fac86e20b8282893cb1`. Commit `b8702ccb309e3501137187f6452020d99b6e6179` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F allow characters to join factions`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production command, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
+
+### IP-129 — Continue to leaving a faction
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 14 faction joining was committed and its CodeCraft run completed. The human requested continuation to the next provisional Factions item.
+- **Request or event:** Assess the rule that a character can leave one faction without affecting membership in other factions, without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `leave-character-faction` and assessed Element 15 only. No BDD, expected output, focused test, production method, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item is deterministic. `PlayerCharacter` already owns the identity-based membership set and its join/query protocols, so leaving can remain an encapsulated character command.
+
+### IP-130 — Define leaving one faction while preserving another
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** `PlayerCharacter` can join and query multiple memberships but exposes no command to remove one. The requirements allow leaving factions, and the roadmap makes preservation of other memberships explicit.
+- **Request or event:** Approve Element 15: create Hero plus named Knights and Mages factions and join Hero to both during Arrange; invoke `hero.leave(knights)` as the single Act; assert Hero no longer belongs to Knights and still belongs to Mages. Add `CharacterLeavesFaction_bdd.leavingOneFactionPreservesOtherMemberships` and its approved output, then run it against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacter.leave(Faction)` does not exist. Stop for confirmation before focused tests or implementation. Leaving an unjoined faction, equality between separately constructed same-name factions, allies, ally damage/healing, non-ally healing, lifetime faction history/progression, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact leave-one-preserve-one BDD, expected output, and `leave(Faction)` protocol for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** `PlayerCharacter` remains the receiver, membership information owner, decision owner, and state owner. `Faction` supplies identity and name. The public protocols are `leave(Faction)` for the state change and `belongsTo(Faction)` for observation; no dependency abstraction, injection point, or composition root is required.
+
+### IP-131 — Confirm leaving-faction outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `CharacterLeavesFaction_bdd.leavingOneFactionPreservesOtherMemberships` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm that Maven's test-compilation failure is the expected outside red: `CharacterLeavesFaction_bdd.java:17` cannot find `PlayerCharacter.leave(Faction)`. Authorize the next slice: add one focused test showing removal of Knights preserves Mages, record its red, then implement only `PlayerCharacter.leave(Faction)` by removing the supplied faction from the character's existing membership set.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the expected missing-`leave(Faction)` outside red and authorized the complete next slice: add one focused preservation test, record its red, then implement only `PlayerCharacter.leave(Faction)` by removing the supplied faction from the existing membership set.
+- **Automation evidence:** The compilation failure identifies the intended missing command, while the established join and membership-query protocols compile. Production sources remain unchanged.
+
+### IP-132 — Commit the verified faction-leaving behavior
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:e52d5d9cfde75f48a9b2af3fd56267098d7203b978c757688b5abad581ab193b`. Thirty-two active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow characters to leave factions`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending human response.
 - **Resulting authorization or action:** No staging, commit, or push is authorized until confirmation.
 - **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production command, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
