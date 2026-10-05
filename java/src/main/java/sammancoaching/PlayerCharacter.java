@@ -34,6 +34,11 @@ public class PlayerCharacter {
         health = Math.min(maximumHealth, health + healthPoints);
     }
 
+    void gainLevel() {
+        level += 1;
+        maximumHealth += 100;
+    }
+
     Status status() {
         return new Status(name, health, alive, level, maximumHealth);
     }

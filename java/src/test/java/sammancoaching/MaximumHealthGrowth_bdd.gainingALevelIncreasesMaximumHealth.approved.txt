@@ -1,0 +1,3 @@
+Hero gains one level.
+Before: Hero is level 1 with maximum health 1000.
+After: Hero is level 2 with maximum health 1100.

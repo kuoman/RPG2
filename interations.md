@@ -1082,6 +1082,56 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact nine-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:0021e80f385b0b145c720d15e34ad2d83fae55aa0c2a8de4fc396a6e7f49700a`. Eighteen active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Existing protected health/life approval output remains unchanged. Complete status contains only those eleven relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F initialize character progression`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
-- **Response:** Pending.
-- **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction and pending guard command are presented and the human answers with `approve`, `a`, `yes`, or `y`.
-- **Automation evidence:** The candidate includes progression source and rendering, the expanded focused state test, new protected BDD assets, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:452bc3a664c00ab331ea39fb8d0c08fcef9e0be3739902b32b765187ba326b56`. Commit `2f2e5b8ce6ece8f8e0fe6231f94ed14465682655` contains exactly the nine behavior candidate paths and two evidence paths with Arlo message `F initialize character progression`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The candidate includes progression source and rendering, the expanded focused state test, new protected BDD assets, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The exact preflight-before-prompt ordering again completed with one human approval.
+
+### IP-108 — Continue to maximum-health growth by level
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 9 starting progression was committed and its CodeCraft run completed. The human requested continuation to the next Levels roadmap item.
+- **Request or event:** Assess level-driven maximum-health growth without prematurely implementing the later damage- or faction-based level-gain rules.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `grow-maximum-health-with-level` and assessed Element 10 only. No Java, BDD, expected-output, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The rule requires observing a higher-level character, but all eligibility mechanisms are later roadmap items. A narrow package-private `gainLevel()` domain transition can model the event without allowing arbitrary public leveling or choosing an eligibility policy early.
+
+### IP-109 — Define maximum-health growth when a level is gained
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** A new Hero now exposes level 1 and maximum health 1000. The next rule says each additional level increases maximum health by 100, while the reasons a character earns a level are deliberately deferred.
+- **Request or event:** Approve Element 10: create Hero and capture its progression state during Arrange; invoke package-private `hero.gainLevel()` as the single Act representing an already-decided level-gain event; assert Hero changes from level 1/maximum health 1000 to level 2/maximum health 1100. Add `MaximumHealthGrowth_bdd.gainingALevelIncreasesMaximumHealth` and its approved output, then run the BDD against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacter.gainLevel()` does not exist. Stop for confirmation before focused tests or implementation. Level eligibility, damage/faction progression, current-health refill on level gain, damage scaling, and temporary level loss remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact Element 10 BDD scenario, expected output, package-private `gainLevel()` protocol used by the test, and focused outside-red run against unchanged production code. Focused tests and production implementation remain unauthorized until the expected missing-method outside red is confirmed.
+- **Automation evidence:** `PlayerCharacter` already owns level and maximum health, so it owns their synchronized transition. Package-private visibility supports later internal progression rules without publishing a client-controlled leveling command.
+
+### IP-110 — Confirm the Element 10 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `MaximumHealthGrowth_bdd` and expected output were created without changing production code. Its focused Maven run failed at test compilation exactly as predicted: `PlayerCharacter` has no `gainLevel()` method.
+- **Request or event:** Confirm that the missing `gainLevel()` method is the expected outside red. After confirmation, add the smallest focused level-growth test and implement Element 10 only: one gained level changes level 1/maximum health 1000 to level 2/maximum health 1100. Level eligibility, damage/faction progression, current-health refill, damage scaling, and temporary level loss remain later slices.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact missing `gainLevel()` outside red and authorized the smallest focused maximum-health-growth test plus production implementation of Element 10 only: one gained level changes level 1/maximum health 1000 to level 2/maximum health 1100. Level eligibility, damage/faction progression, current-health refill, damage scaling, and temporary level loss remain unauthorized.
+- **Automation evidence:** The public behavior failure isolates the missing synchronized level/maximum-health transition. During verification, a compound read-only inspection command was incorrectly treated as a protected write after automatic BDD enrollment; using single-purpose read commands avoids that guard false positive, and the event is useful input for improving protected-command classification.
+
+### IP-111 — Permit the isolated Element 10 verification worktree
+
+- **Type:** Host filesystem permission checkpoint
+- **Stage:** Verification
+- **Trigger:** The first isolated behavior-lane attempt passed its repository checks but the sandbox denied Git's write under `.git/worktrees`, which the verifier needs for its temporary detached worktree.
+- **Request or event:** Allow the project-local verifier to create and remove its temporary Git worktree for the already-approved Element 10 candidate.
+- **Response:** Approved through the host permission prompt.
+- **Resulting authorization or action:** Reran the unchanged verifier command with the required filesystem permission. The preliminary behavior lane passed with candidate digest `sha256:1883a23cbe09b440b11d384ef4aa37ae887b3a54a9f47e9181e03c58d1798f75`; no source scope or push authorization was added.
+- **Automation evidence:** The verifier's temporary-worktree requirement is deterministic and recurring. Persisting the narrowly scoped `verify_increment.py behavior` permission avoids repeating this host-only interaction while retaining CodeCraft's human behavior checkpoints.
+
+### IP-112 — Commit the verified Element 10 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:081f07821b4e77204524da63eb3f712273b36d3e08e5263126f793d4d85a2452`. Twenty active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Current health remains unchanged during level gain. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F grow maximum health with level`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** Pending human response.
+- **Resulting authorization or action:** No commit or push is authorized until confirmation.
+- **Automation evidence:** The exact candidate includes source, protected BDD assets, focused test, protected registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. Read-only guard classification was also observed to reject directory `ls` and an `execute --help` query, suggesting the allowlist should recognize common read-only discovery commands and help invocations without weakening mutation protection.
