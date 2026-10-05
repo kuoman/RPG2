@@ -1002,6 +1002,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:1bf937c3e85d3a6a79754c8e9ce8610a69489607eb5da7a5fb4bd94a26b2963d`. Fourteen active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. No generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F cap healing at maximum health`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:d5581fd48a5e92ace5e040d0d983e872a596e77c0b82c482492b94a0d4db5840`. Commit `04a33a67224b2b36b70080142321166783c267cc` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F cap healing at maximum health`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The final candidate includes source, protected BDD assets, focused test, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. As intended, the exact preflight-before-prompt ordering let one human response authorize both the receipt-bound transaction and the pending protected-command digest.
+
+### IP-100 — Continue to dead-character healing prevention
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 7 maximum-health capping was committed and its CodeCraft run completed. The human requested continuation to the next provisional roadmap item.
+- **Request or event:** Assess the dead-character healing rule under the project-local CodeCraft workflow without implementing before its required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `prevent-dead-character-healing` and assessed Element 8 only. No Java, BDD, expected-output, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** Current `heal(int)` clamps to maximum health but does not inspect life state. A dead Hero at 0 health attempting to heal 100 would therefore become 100 health while remaining dead.
+
+### IP-101 — Define dead-character healing prevention
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** The final Healing roadmap rule says dead characters cannot heal. Existing lethal behavior can arrange Hero at 0 health and dead, and `PlayerCharacter` owns both health and life state.
+- **Request or event:** Approve Element 8: Orc deals 1000 damage to Hero during Arrange; Hero then attempts to heal itself for 100 health as the single Act; Hero remains at 0 health and dead. Add `DeadCharacterHealing_bdd.deadCharacterCannotHealItself` and its approved output, reuse `hero.heal(100)`, and run the BDD against unchanged production code. The predicted outside red is an approval mismatch whose received result reports Hero at 100 health and dead. Stop for confirmation before adding a focused test or production implementation. Resurrection, healing others, damage after death, levels, magical objects, and zero or negative amounts remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact Element 8 BDD scenario, expected output, reuse of `heal(int)`, and focused outside-red run against unchanged production code. Focused tests and production implementation remain unauthorized until the expected 100-health-while-dead outside red is confirmed.
+- **Automation evidence:** The state-owning `PlayerCharacter` remains receiver, decision owner, and state owner; the missing rule is a life-state guard on the existing self-healing protocol, with no new collaborator or abstraction pressure.
+
+### IP-102 — Confirm the Element 8 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `DeadCharacterHealing_bdd` and expected output were created without changing production code. Its focused Maven run failed exactly as predicted: expected Hero at 0 health/dead after attempting to heal, but received Hero at 100 health/dead.
+- **Request or event:** Confirm that the 100-health-while-dead approval mismatch is the expected outside red. After confirmation, remove the generated received output, add the smallest focused dead-character healing test, and implement Element 8 only. Resurrection, healing others, damage after death, levels, magical objects, and invalid amounts remain later slices.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact 100-health-while-dead outside red and authorized removal of its generated received output, the smallest focused dead-character healing test, and production implementation of Element 8 only. Resurrection, healing others, damage after death, levels, magical objects, and invalid amounts remain unauthorized.
+- **Automation evidence:** The public behavior failure isolates the missing life-state guard on healing while preserving living-character healing and maximum-health capping.
+
+### IP-103 — Commit the verified Element 8 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:1eafd15afed1cab2eb52832ee6d2509df6d8ca2e65260fdf02cc2a1322cc7037`. Sixteen active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. No generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F prevent dead characters from healing`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending.
 - **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction and pending guard command are presented and the human answers with `approve`, `a`, `yes`, or `y`.
-- **Automation evidence:** The final candidate includes source, protected BDD assets, focused test, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The preflight-before-prompt ordering is intended to preserve a single approval interaction.
+- **Automation evidence:** The final candidate includes source, protected BDD assets, focused test, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths; preflight-before-prompt preserves the single-approval boundary.

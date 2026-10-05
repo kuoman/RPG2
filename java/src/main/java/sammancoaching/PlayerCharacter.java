@@ -26,6 +26,9 @@ public class PlayerCharacter {
     }
 
     public void heal(int healthPoints) {
+        if (!alive) {
+            return;
+        }
         health = Math.min(maximumHealth, health + healthPoints);
     }
 
