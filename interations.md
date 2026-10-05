@@ -822,6 +822,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt `sha256:880b13cc62f84293f1ae11f8f41ce0962668b26c980a420182cc5197c830b282`. Ten active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the user's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F prevent self-damage`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented in the human prompt.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:72b220b1ddf4313de1864045365be2b0155956a87ca5ca2d1150906efe91311f`. Commit `422a302357859f9b57b1c904b9b72719735e4b24` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F prevent self-damage`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The behavior commit completed staging, staged verification, path-limited commit, and committed verification in one 12.1-second protected operation after one human approval. The response was recorded after execution so it could not invalidate the approved evidence-content identity; this updated interaction record remains for the next increment.
+
+### IP-082 — Review the completeness of the development plan
+
+- **Type:** Human roadmap question
+- **Stage:** Planning assessment
+- **Trigger:** After all five listed plan items were completed, the human observed that `emergent/design/development-plan.md` is very short and asked for the complete plan.
+- **Request or event:** Compare the development plan with the repository's full RPG Combat requirements and identify the missing roadmap without changing behavior or documentation yet.
+- **Response:** `What's the complete plan? The Development plan is really short and does`
+- **Resulting authorization or action:** Assessment only. The current plan covers creation and core damage through self-damage prevention, but omits healing, levels, factions, magical objects, and progression. No plan or code change is authorized by the question alone.
+- **Automation evidence:** `README.md` contains an original ruleset followed by a revised ruleset. The revised sections change maximum-health growth, level-based damage scaling, and maximum/temporary level rules, so a complete executable roadmap needs a human decision about whether the later block supersedes the earlier one.
+
+### IP-083 — Expand the complete provisional roadmap
+
+- **Type:** Human documentation authorization
+- **Stage:** Planning
+- **Trigger:** The roadmap review showed that the five-item development plan covered only completed core damage behavior. The assistant recommended treating the later README rules as authoritative where they modify the original and outlined the missing healing, levels, factions, magical objects, and progression phases.
+- **Request or event:** Authorize expanding the project-owned development plan into that complete provisional roadmap without implementing any new behavior.
+- **Response:** `sounds good, make it so`
+- **Resulting authorization or action:** Authorized a documentation-only plan expansion. The later rules govern revised Levels and Changing level behavior; unchanged sections retain their original requirements. Every unchecked item remains provisional and still requires its own BDD design checkpoint.
+- **Automation evidence:** Ambiguous requirements are represented as explicit collaborative decision items rather than silently resolved: integer damage rounding, healing-object resource consumption, and whether one attack can cross multiple survival thresholds.
+
+### IP-084 — Continue the roadmap documentation slice
+
+- **Type:** Human continuation
+- **Stage:** Documentation review
+- **Trigger:** The complete provisional roadmap had been written and was awaiting consistency review and documentation-lane verification when the human requested `continue`.
+- **Request or event:** Continue the authorized documentation-only slice without beginning any unchecked behavior.
+- **Response:** `continue`
+- **Resulting authorization or action:** Continue roadmap review, verification, and commit preparation only. No Java behavior or workflow machinery is authorized.
+- **Automation evidence:** Mid-slice continuation preserved the existing narrow scope and active CodeCraft run instead of restarting discovery.
+
+### IP-085 — Commit the complete provisional roadmap
+
+- **Type:** Human commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The documentation-only roadmap candidate passed the isolated documentation lane with receipt `sha256:67174e63a00dce2a40ffa2b53affbf9ef1398f5b3136440ba7c8a0f2fa569a7c`. The exact candidate is `emergent/design/development-plan.md`; `interations.md` is allowed evidence. The user's unrelated `README.md` and `.idea` work remains excluded.
+- **Request or event:** Confirm one receipt-bound transaction for those two exact paths with Arlo message `d expand development roadmap`. Validate before and after the path-limited commit; do not push. The exact transaction identity will be presented in the human prompt.
 - **Response:** Pending.
 - **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction is presented and the human answers with `approve`, `a`, `yes`, or `y`.
-- **Automation evidence:** This behavior uses the new one-approval commit boundary. Evidence is frozen while approval is pending; the response will be recorded after execution so it cannot invalidate the approved identity.
+- **Automation evidence:** The documentation lane proves the roadmap change is isolated from executable behavior and workflow machinery.
