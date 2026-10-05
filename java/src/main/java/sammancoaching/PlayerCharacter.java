@@ -19,11 +19,17 @@ public class PlayerCharacter {
         if (enemy == this) {
             return;
         }
-        if (damagePoints >= health) {
+        var appliedDamage = damagePoints;
+        if (level > enemy.level) {
+            var levelAdvantage = level - enemy.level;
+            var reductionPercentage = Math.min(levelAdvantage * 10, 50);
+            appliedDamage = damagePoints * (100 - reductionPercentage) / 100;
+        }
+        if (appliedDamage >= health) {
             health = 0;
             alive = false;
         } else {
-            health -= damagePoints;
+            health -= appliedDamage;
         }
     }
 
