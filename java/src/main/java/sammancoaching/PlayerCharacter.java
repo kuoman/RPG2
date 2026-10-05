@@ -3,11 +3,13 @@ package sammancoaching;
 public class PlayerCharacter {
     private final String name;
     private int health;
+    private int level;
     private int maximumHealth;
     private boolean alive;
 
     public PlayerCharacter(String name) {
         this.name = name;
+        level = 1;
         maximumHealth = 1000;
         health = maximumHealth;
         alive = true;
@@ -33,9 +35,9 @@ public class PlayerCharacter {
     }
 
     Status status() {
-        return new Status(name, health, alive);
+        return new Status(name, health, alive, level, maximumHealth);
     }
 
-    record Status(String name, int health, boolean alive) {
+    record Status(String name, int health, boolean alive, int level, int maximumHealth) {
     }
 }

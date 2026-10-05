@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PlayerCharacterStateTest {
+class PlayerCharacterLevelTest {
     @Test
-    void newCharacterStartsWithFullHealthAndAlive() {
+    void startsAtLevelOneWithMaximumHealth() {
         // Arrange
         var hero = new PlayerCharacter("Hero");
 
@@ -14,6 +14,7 @@ class PlayerCharacterStateTest {
         var status = hero.status();
 
         // Assert
-        assertEquals(new PlayerCharacter.Status("Hero", 1000, true, 1, 1000), status);
+        assertEquals(1, status.level());
+        assertEquals(1000, status.maximumHealth());
     }
 }

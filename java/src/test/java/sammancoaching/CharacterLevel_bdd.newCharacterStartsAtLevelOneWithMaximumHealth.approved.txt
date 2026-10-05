@@ -1,0 +1,1 @@
+Hero is level 1 with maximum health 1000.

@@ -25,7 +25,7 @@ Record the agreed behavior sequence here. Completed items are evidence-backed. U
 
 ## 3. Levels, maximum health, and damage scaling
 
-- [ ] A new character starts at level 1 with maximum health 1000.
+- [x] A new character starts at level 1 with maximum health 1000.
 - [ ] Each additional level increases maximum health by 100.
 - [ ] Damage is reduced by 10% for each level the target is above the attacker, capped at a 50% reduction.
 - [ ] Damage is increased by 10% for each level the target is below the attacker, capped at a 50% increase.

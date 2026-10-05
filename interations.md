@@ -1042,6 +1042,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:1eafd15afed1cab2eb52832ee6d2509df6d8ca2e65260fdf02cc2a1322cc7037`. Sixteen active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. No generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F prevent dead characters from healing`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:6ba026f69de706027c8d9086621cd65a5b3a04b2c4e8764ccbadce98f4477c2f`. Commit `5090dc4f7cd8512a510022d2649e0a2c9208e64e` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F prevent dead characters from healing`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The final candidate includes source, protected BDD assets, focused test, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The exact preflight-before-prompt ordering again let one human response authorize both transaction and protected-command digest.
+
+### IP-104 — Continue to starting level and maximum health
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** The complete Healing phase was committed and its CodeCraft run completed. The human requested continuation to the first Levels roadmap item.
+- **Request or event:** Assess starting level and maximum health under the project-local CodeCraft workflow without implementing before its required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `initialize-character-level` and assessed Element 9 only. No Java, BDD, expected-output, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** `PlayerCharacter` already owns a 1000 maximum-health value but owns no level, and the existing printer output is shared by protected approval tests. A separate progression rendering method can expose the new behavior without rewriting earlier approved stories.
+
+### IP-105 — Define a new character's starting progression state
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** The revised requirements say a new character starts at level 1 with maximum health 1000. Existing health/life approval output must remain stable, while `PlayerCharacter.Status` is the established immutable observation boundary consumed by `PlayerCharacterPrinter`.
+- **Request or event:** Approve Element 9: create Hero during Arrange; render Hero's progression state as the single Act using `printer.printProgression(hero)`; assert `Hero is level 1 with maximum health 1000.` Add `CharacterLevel_bdd.newCharacterStartsAtLevelOneWithMaximumHealth` and its approved output, then run the BDD against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacterPrinter.printProgression(PlayerCharacter)` does not exist. Stop for confirmation before adding focused tests or production implementation. Level gain, maximum-health growth, damage scaling, progression counters, and temporary level loss remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact Element 9 BDD scenario, expected output, separate `printProgression` observation protocol, and focused outside-red run against unchanged production code. Focused tests and production implementation remain unauthorized until the expected missing-method outside red is confirmed.
+- **Automation evidence:** A separate rendering method preserves all prior protected approval output. The later focused design can add level and maximum health to the existing immutable status snapshot without exposing mutable domain state or introducing a new policy abstraction.
+
+### IP-106 — Confirm the Element 9 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `CharacterLevel_bdd` and expected output were created without changing production code. Its focused Maven run failed at test compilation exactly as predicted: `PlayerCharacterPrinter` has no `printProgression(PlayerCharacter)` method.
+- **Request or event:** Confirm that the missing progression-rendering method is the expected outside red. After confirmation, add the smallest focused starting-level test and implement Element 9 only while preserving all existing health/life approval output. Level gain, maximum-health growth, damage scaling, progression counters, and temporary level loss remain later slices.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact missing `printProgression` outside red and authorized the smallest focused starting-level test plus production implementation of Element 9 only: level 1, maximum health 1000 in the immutable status snapshot, and separate progression rendering. Later level behavior remains unauthorized.
+- **Automation evidence:** The failure isolates the missing public observation protocol without requiring changes to any earlier protected approval asset.
+
+### IP-107 — Commit the verified Element 9 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact nine-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:0021e80f385b0b145c720d15e34ad2d83fae55aa0c2a8de4fc396a6e7f49700a`. Eighteen active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Existing protected health/life approval output remains unchanged. Complete status contains only those eleven relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F initialize character progression`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending.
 - **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction and pending guard command are presented and the human answers with `approve`, `a`, `yes`, or `y`.
-- **Automation evidence:** The final candidate includes source, protected BDD assets, focused test, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths; preflight-before-prompt preserves the single-approval boundary.
+- **Automation evidence:** The candidate includes progression source and rendering, the expanded focused state test, new protected BDD assets, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths.
