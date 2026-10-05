@@ -3,6 +3,8 @@
   "java/src/test/java/sammancoaching/CharacterCreation_bdd.newCharacterStartsWithFullHealthAndAlive.approved.txt",
   "java/src/test/java/sammancoaching/CharacterDamage_bdd.damageReducesTargetHealth.approved.txt",
   "java/src/test/java/sammancoaching/CharacterDamage_bdd.java",
+  "java/src/test/java/sammancoaching/CharacterHealing_bdd.damagedLivingCharacterHealsItself.approved.txt",
+  "java/src/test/java/sammancoaching/CharacterHealing_bdd.java",
   "java/src/test/java/sammancoaching/DepletingDamage_bdd.damageEqualToCurrentHealthKillsTheTarget.approved.txt",
   "java/src/test/java/sammancoaching/DepletingDamage_bdd.java",
   "java/src/test/java/sammancoaching/LethalDamage_bdd.java",

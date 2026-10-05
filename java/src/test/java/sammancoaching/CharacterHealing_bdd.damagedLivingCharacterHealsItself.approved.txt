@@ -1,0 +1,4 @@
+Orc deals 100 damage to Hero.
+Hero heals itself for 50 health.
+Before healing: Hero has 900 health and is alive.
+After healing: Hero has 950 health and is alive.

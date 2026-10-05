@@ -902,6 +902,56 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit execution
 - **Trigger:** The human approved the exact eight-path receipt-bound workflow transaction, but its first execute attempt was blocked before staging because `.codecraft/installation.json` is protected. The transaction helper already binds that path, its content, the signed receipt, the other seven paths, and the commit message.
 - **Request or event:** Reconfirm the recalculated exact transaction after this interaction evidence is included. Execute the same path-limited `B fix documentation evidence fingerprints` commit; leave unrelated work unstaged and do not push.
-- **Response:** Pending.
-- **Resulting authorization or action:** No staging, commit, or push is authorized until the human answers with `approve`, `a`, `yes`, or `y` after the blocked exact command.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized recalculated transaction `sha256:de4bc79082448a369df19534aa2eb5eb5e4fba6c5d7bf718d3b5e5ee6c9b2b27`, but the hook applied the response to the prior pending command identity. The first attempt of the recalculated transaction therefore created a new pending authorization and was blocked before staging. No commit or push occurred at this interaction.
 - **Automation evidence:** This checkpoint is caused by overlapping transaction approval and protected-path approval mechanisms; it is a concrete candidate for reducing duplicate interactions while preserving an exact single-use boundary.
+
+### IP-090 — Align approval with the unchanged pending transaction
+
+- **Type:** Human protected-command retry
+- **Stage:** Commit execution
+- **Trigger:** Interaction evidence changed the receipt-bound transaction after the first protected-command attempt. The subsequent approval was consumed by that earlier pending digest, so the first exact attempt of transaction `sha256:de4bc79082448a369df19534aa2eb5eb5e4fba6c5d7bf718d3b5e5ee6c9b2b27` created a new pending hook record instead of executing. The assistant diagnosed the two-step hook protocol and promised not to change evidence again before retrying.
+- **Request or event:** Approve the already-attempted, unchanged transaction once more so the hook's pending command digest and the human response align.
+- **Response:** `a`
+- **Resulting authorization or action:** The identical command consumed the pending approval and created commit `867813911afa13cd194be06255a2ac087c6b38d9` with exactly the six candidate paths and two evidence paths. Both staged and committed receipt checks passed. Unrelated `README.md` and `.idea` work remained outside the commit; no push occurred.
+- **Automation evidence:** The successful retry confirms that the hook requires this order: first attempt creates a pending digest, the next affirmative prompt authorizes that digest, and then an identical tool input executes. Logging a checkpoint between those steps changes evidence and therefore the transaction identity, producing an avoidable approval loop.
+
+### IP-091 — Continue to the next roadmap behavior
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** CodeCraft Starter 0.5.2 was installed and committed, both prior runs were complete, and the human requested continuation.
+- **Request or event:** Assess the first unchecked roadmap behavior under the project-local CodeCraft workflow without implementing before its required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `heal-damaged-character` and assessed Element 6 only. No Java, BDD, expected-output, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The development plan identifies self-healing for a living damaged character as the first unchecked item. `PlayerCharacter` already owns health and life state, so the slice introduces no collaborator or dependency direction.
+
+### IP-092 — Define self-healing for a damaged living character
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** A new Hero starts at 1000 health. Existing damage behavior can arrange Hero at 900 health while alive, and `PlayerCharacter` owns the state that healing changes. The requirements say a character can heal itself but do not prescribe a sample amount or method name.
+- **Request or event:** Approve Element 6: Orc deals 100 damage to Hero during Arrange; Hero then heals itself for 50 health as the single Act; Hero changes from 900 health/alive to 950 health/alive. Add `CharacterHealing_bdd.damagedLivingCharacterHealsItself` and its approved output, call a minimal `hero.heal(50)` protocol, and run the BDD against unchanged production code. The predicted outside red is test-compilation failure because `PlayerCharacter.heal(int)` does not exist. Stop for confirmation before adding a focused test or production implementation. Maximum-health capping, healing while dead, healing others, magical objects, and zero or negative amounts remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact Element 6 BDD scenario, expected output, minimal `heal(int)` protocol used by the test, and focused outside-red run against unchanged production code. Focused tests and production implementation remain unauthorized until the expected outside red is confirmed.
+- **Automation evidence:** The smallest responsibility-aligned design places self-healing on the health-owning `PlayerCharacter`; later ally and magical-object rules can introduce their own sender-aware protocols only when those behaviors create design pressure.
+
+### IP-093 — Confirm the Element 6 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `CharacterHealing_bdd` and expected output were created without changing production code. Its focused Maven run failed at test compilation exactly as predicted: `PlayerCharacter` has no `heal(int)` method.
+- **Request or event:** Confirm that the missing `heal(int)` compilation failure is the expected outside red. After confirmation, add the smallest focused self-healing test, implement Element 6 only, and leave maximum-health capping, dead-character healing, allies, magical objects, and invalid amounts for later slices.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact missing `heal(int)` outside red and authorized the smallest focused self-healing test plus production implementation of Element 6 only. Maximum-health capping, dead-character healing, allies, magical objects, and invalid amounts remain unauthorized.
+- **Automation evidence:** The failure isolates the missing self-healing protocol before implementation. A compound run-state update that named the newly enrolled protected BDD path was falsely blocked, so the outside-red checkpoint and attention were recorded separately with `interations.md` as the unprotected routing context.
+
+### IP-094 — Commit the verified Element 6 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:bfc57486ba72de43b5ab3bdc128050d9cb088c33fef0967b2a535991e3f29b50`. Twelve active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow damaged characters to heal`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented in the human prompt.
+- **Response:** Pending.
+- **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction is presented and the human answers with `approve`, `a`, `yes`, or `y`.
+- **Automation evidence:** The behavior lane proves the final source, protected BDD assets, focused test, protected registry, plan, and responsibility-map candidate together. Feature evidence and the interaction log are allowed evidence-only paths.

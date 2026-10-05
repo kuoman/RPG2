@@ -23,6 +23,10 @@ public class PlayerCharacter {
         }
     }
 
+    public void heal(int healthPoints) {
+        health += healthPoints;
+    }
+
     Status status() {
         return new Status(name, health, alive);
     }
