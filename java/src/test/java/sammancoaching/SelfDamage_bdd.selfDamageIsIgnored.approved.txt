@@ -1,0 +1,3 @@
+Hero attempts to deal 100 damage to itself.
+Before: Hero has 1000 health and is alive.
+After: Hero has 1000 health and is alive.

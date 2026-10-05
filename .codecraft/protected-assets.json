@@ -7,5 +7,7 @@
   "java/src/test/java/sammancoaching/DepletingDamage_bdd.java",
   "java/src/test/java/sammancoaching/LethalDamage_bdd.java",
   "java/src/test/java/sammancoaching/LethalDamage_bdd.overkillDamageClampsHealthAndKillsTheTarget.approved.txt",
-  "java/src/test/java/sammancoaching/PlayerCharacterTest.dealDamage.approved.txt"
+  "java/src/test/java/sammancoaching/PlayerCharacterTest.dealDamage.approved.txt",
+  "java/src/test/java/sammancoaching/SelfDamage_bdd.java",
+  "java/src/test/java/sammancoaching/SelfDamage_bdd.selfDamageIsIgnored.approved.txt"
 ]
