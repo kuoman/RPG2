@@ -1332,9 +1332,39 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:254f62c9acda9af055d701b69dc136ac2b8d4ba66f4046275c7563150bf2515d`. Thirty-four active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F recognize shared-faction allies`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
-- **Response:** Pending human response.
-- **Resulting authorization or action:** No staging, commit, or push is authorized until confirmation.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:d1acf0edb6197fbb2d8e3ce644796ddf4c233b98f6d8ef8cd440f80ccb8012a8`. Commit `11bd3f8f261c842456a4ada58d41b3cab3bd9da6` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F recognize shared-faction allies`. Both staged and committed receipt checks passed; no push occurred.
 - **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production query, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
+
+### IP-137 — Continue to preventing ally damage
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 16 shared-faction alliance recognition was committed and its CodeCraft run completed. The human requested continuation to the next provisional Factions item.
+- **Request or event:** Assess the rule that allies cannot damage one another, without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `prevent-ally-damage` and assessed Element 17 only. No BDD, expected output, focused test, production guard, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item is deterministic. The target `PlayerCharacter` already owns health, received-damage decisions, and the ally query, so it can reject ally damage without a new collaborator. The first run-start command was falsely blocked because its read-only context named an existing protected BDD file; removing that path from operational context allowed the unchanged start request, identifying another avoidable guard interaction pattern.
+
+### IP-138 — Define the ally-damage guard
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** Shared-faction characters are recognized as allies, but `receiveDamage` currently guards only self-damage and otherwise applies level-adjusted damage. The requirements prohibit allies from damaging one another.
+- **Request or event:** Approve Element 17: create Hero and Companion, join both to the same Knights identity, and capture Hero's initial printed state during Arrange; invoke `hero.receiveDamage(companion, 100)` as the single Act; assert Hero remains at 1000 health and alive. Add `AllyDamage_bdd.allyDamageIsIgnored` and its approved output, then run it against unchanged production code. The predicted outside red is an approval mismatch: production reports Hero at 900 health rather than the approved unchanged 1000. Stop for confirmation before focused tests or implementation. Self-alliance, same-name faction equality, changes to non-allied damage, ally healing, non-ally healing, lifetime faction history/progression, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact ally-damage BDD, unchanged-health output, and predicted 900-health approval mismatch for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** The target `PlayerCharacter` is the receiver, health state owner, and damage-admission decision owner; the attacker supplies its membership identity through the established `isAlliedWith` protocol. No new dependency abstraction, injection point, or composition root is required.
+
+### IP-139 — Confirm ally-damage outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `AllyDamage_bdd.allyDamageIsIgnored` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm the expected approval mismatch: the approved output keeps Hero alive at 1000 health, while the received output shows allied Companion's 100 damage reduced Hero to 900 health. Authorize the next slice: remove the generated received output, add one focused ally-damage test, record its 900-versus-1000 red, then implement only an ally guard in `PlayerCharacter.receiveDamage` before damage scaling and health mutation.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the expected 900-versus-1000 approval mismatch and authorized the complete next slice: remove the generated received output, add one focused ally-damage test, record its red, then implement only an ally guard in `PlayerCharacter.receiveDamage` before damage scaling and health mutation.
+- **Automation evidence:** The mismatch is the exact predicted domain failure rather than a compilation or test-infrastructure problem. Production sources remain unchanged.
 
 ### IP-129 — Continue to leaving a faction
 
@@ -1375,3 +1405,13 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Response:** `a`
 - **Resulting authorization or action:** Authorized and completed transaction `sha256:63bdf2406c1daad22adc3ce442fae7502553ef1941fcc78f595055f50e242aef`. Commit `5e4400fbff194540bdbf90e17601c1faf3eaf1af` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F allow characters to leave factions`. Both staged and committed receipt checks passed; no push occurred.
 - **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production command, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
+
+### IP-140 — Commit the verified ally-damage guard
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:b73eef2eaa8fe139d733ced234400a9a08f7d52fb704483c053b25dad0278c5e`. Thirty-six active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F prevent allies from damaging one another`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** Pending human response.
+- **Resulting authorization or action:** No staging or commit is authorized until the human confirms the exact transaction identity.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production guard, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail. A combined read-only status/generated-output inspection was falsely blocked because its scan surfaced protected paths; retrying status and diff inspection without that protected scan succeeded and changed no repository state.

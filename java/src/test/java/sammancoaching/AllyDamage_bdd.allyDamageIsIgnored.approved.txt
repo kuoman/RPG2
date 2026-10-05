@@ -1,0 +1,4 @@
+Hero and Companion share Knights.
+Companion attempts to deal 100 damage to Hero.
+Before: Hero has 1000 health and is alive.
+After: Hero has 1000 health and is alive.

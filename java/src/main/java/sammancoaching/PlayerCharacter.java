@@ -21,7 +21,7 @@ public class PlayerCharacter {
     }
 
     public void receiveDamage(PlayerCharacter enemy, int damagePoints) {
-        if (enemy == this) {
+        if (enemy == this || isAlliedWith(enemy)) {
             return;
         }
         var appliedDamage = damageAdjustedForLevelDifference(enemy, damagePoints);
