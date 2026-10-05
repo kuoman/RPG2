@@ -3,11 +3,13 @@ package sammancoaching;
 public class PlayerCharacter {
     private final String name;
     private int health;
+    private int maximumHealth;
     private boolean alive;
 
     public PlayerCharacter(String name) {
         this.name = name;
-        health = 1000;
+        maximumHealth = 1000;
+        health = maximumHealth;
         alive = true;
     }
 
@@ -24,7 +26,7 @@ public class PlayerCharacter {
     }
 
     public void heal(int healthPoints) {
-        health += healthPoints;
+        health = Math.min(maximumHealth, health + healthPoints);
     }
 
     Status status() {

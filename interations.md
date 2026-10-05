@@ -952,6 +952,56 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:bfc57486ba72de43b5ab3bdc128050d9cb088c33fef0967b2a535991e3f29b50`. Twelve active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow damaged characters to heal`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented in the human prompt.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:450d10e5a416605d0c4da47656bc67b14fd526c282b831de3594dcf02d648484`. Commit `7c7b450894b996939958a2451947746e42142703` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F allow damaged characters to heal`. Both staged and committed receipt checks passed; no push occurred.
+- **Automation evidence:** The behavior lane proves the final source, protected BDD assets, focused test, protected registry, plan, and responsibility-map candidate together. Performing the exact non-mutating protected-command preflight after logging the pending checkpoint and before asking for approval allowed the one human response to authorize both the transaction and guard digest without an approval loop.
+
+### IP-095 — Continue to the maximum-health healing rule
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 6 self-healing was committed and its CodeCraft run completed. The human requested continuation to the next provisional roadmap item.
+- **Request or event:** Assess the maximum-health healing rule under the project-local CodeCraft workflow without implementing before its required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `cap-healing-at-maximum` and assessed Element 7 only. No Java, BDD, expected-output, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** Current `heal(int)` adds the requested amount without a boundary, while `PlayerCharacter` already owns health. A living Hero at 900 health healing 200 therefore exposes the missing maximum-health rule as 1100 instead of 1000.
+
+### IP-096 — Define healing capped at current maximum health
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** Element 6 established self-healing for a living damaged character. The next roadmap rule requires healing to stop at current maximum health; before levels exist, a new Hero's current maximum is 1000.
+- **Request or event:** Approve Element 7: Orc deals 100 damage to Hero during Arrange; Hero then attempts to heal itself for 200 health as the single Act; Hero changes from 900 health/alive to exactly 1000 health/alive. Add `MaximumHealing_bdd.healingStopsAtMaximumHealth` and its approved output, reuse `hero.heal(200)`, and run the BDD against unchanged production code. The predicted outside red is an approval mismatch whose received result reports Hero at 1100 health/alive. Stop for confirmation before adding a focused test or production implementation. Dead-character healing, levels and level-based maximum growth, allies, magical objects, and zero or negative amounts remain outside this slice.
+- **Response:** `a` after the rejected `1a` response recorded in IP-097.
+- **Resulting authorization or action:** Approved the exact Element 7 BDD scenario, expected output, reuse of `heal(int)`, and focused outside-red run against unchanged production code. Focused tests and production implementation remain unauthorized until the expected 1100-health outside red is confirmed.
+- **Automation evidence:** The health-owning `PlayerCharacter` remains the receiver, decision owner, and state owner. The observable rule requires a current maximum-health boundary but does not yet require a public level protocol or a separate policy object.
+
+### IP-097 — Reject an unrecognized approval response
+
+- **Type:** Human checkpoint response validation
+- **Stage:** Design
+- **Trigger:** Element 7 was awaiting one of the configured approval aliases: `approve`, `a`, `yes`, or `y`.
+- **Request or event:** Interpret the human response to the pending Element 7 BDD design checkpoint.
+- **Response:** `1a`
+- **Resulting authorization or action:** No authorization was granted because `1a` is not an accepted exact alias. The Element 7 checkpoint remains pending; no protected BDD asset or Java source changed.
+- **Automation evidence:** Exact alias validation prevents accidental implementation from a malformed or ambiguous response while allowing an immediate corrected reply.
+
+### IP-098 — Confirm the Element 7 outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `MaximumHealing_bdd` and expected output were created without changing production code. Its focused Maven run failed exactly as predicted: expected Hero at 1000 health/alive after healing, but received Hero at 1100 health/alive.
+- **Request or event:** Confirm that the 1100-health approval mismatch is the expected outside red. After confirmation, remove the generated received output, add the smallest focused maximum-health test, and implement Element 7 only. Dead-character healing, levels and level-based maximum growth, allies, magical objects, and invalid amounts remain later slices.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the exact 1100-health outside red and authorized removal of its generated received output, the smallest focused maximum-health test, and production implementation of Element 7 only. Dead-character healing, levels, allies, magical objects, and invalid amounts remain unauthorized.
+- **Automation evidence:** The public behavior failure isolates the missing maximum-health boundary while preserving the existing successful self-healing behavior below that boundary.
+
+### IP-099 — Commit the verified Element 7 behavior slice
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:1bf937c3e85d3a6a79754c8e9ce8610a69489607eb5da7a5fb4bd94a26b2963d`. Fourteen active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. No generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F cap healing at maximum health`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
 - **Response:** Pending.
-- **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction is presented and the human answers with `approve`, `a`, `yes`, or `y`.
-- **Automation evidence:** The behavior lane proves the final source, protected BDD assets, focused test, protected registry, plan, and responsibility-map candidate together. Feature evidence and the interaction log are allowed evidence-only paths.
+- **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the prepared transaction and pending guard command are presented and the human answers with `approve`, `a`, `yes`, or `y`.
+- **Automation evidence:** The final candidate includes source, protected BDD assets, focused test, registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The preflight-before-prompt ordering is intended to preserve a single approval interaction.

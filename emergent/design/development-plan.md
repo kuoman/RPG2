@@ -20,7 +20,7 @@ Record the agreed behavior sequence here. Completed items are evidence-backed. U
 ## 2. Healing
 
 - [x] A living damaged character can heal itself by an approved amount.
-- [ ] Healing cannot raise a character above its current maximum health.
+- [x] Healing cannot raise a character above its current maximum health.
 - [ ] A dead character cannot heal itself.
 
 ## 3. Levels, maximum health, and damage scaling
