@@ -21,6 +21,8 @@
   "java/src/test/java/sammancoaching/MaximumHealing_bdd.java",
   "java/src/test/java/sammancoaching/MaximumHealthGrowth_bdd.gainingALevelIncreasesMaximumHealth.approved.txt",
   "java/src/test/java/sammancoaching/MaximumHealthGrowth_bdd.java",
+  "java/src/test/java/sammancoaching/NewCharacterFaction_bdd.java",
+  "java/src/test/java/sammancoaching/NewCharacterFaction_bdd.newCharacterBelongsToNoFaction.approved.txt",
   "java/src/test/java/sammancoaching/PlayerCharacterTest.dealDamage.approved.txt",
   "java/src/test/java/sammancoaching/SelfDamage_bdd.java",
   "java/src/test/java/sammancoaching/SelfDamage_bdd.selfDamageIsIgnored.approved.txt"

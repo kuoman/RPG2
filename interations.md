@@ -1212,6 +1212,46 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two allowed evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:3bf3f5b5ef2b085943e299b4c47667d0300c87a513beb127c4744f49314043fc`. Twenty-six active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Both level modifiers share one private signed calculation, and no generated received output remains. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F increase damage against lower-level targets`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
-- **Response:** Pending human response.
-- **Resulting authorization or action:** No commit or push is authorized until confirmation.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:1450b296ef53fab9c12343a70b2b4e473b1d4c62daa49f680aea1b5195098f6e`. Commit `bc4fb274ebe84b5d7ebc7a86d677689916bdf3c8` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F increase damage against lower-level targets`. Both staged and committed receipt checks passed; no push occurred.
 - **Automation evidence:** The exact candidate includes source, protected BDD assets, focused test, protected registry, plan, and responsibility-map changes. Feature evidence and `interations.md` are evidence-only paths. The same candidate/evidence shape and preflight ordering continue to avoid separate protected-file and commit approvals.
+
+### IP-121 — Continue to empty initial faction membership
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 12 lower-level target damage increase was committed and its CodeCraft run completed, finishing the current Levels and damage-scaling phase. The human requested continuation to the first provisional Factions item.
+- **Request or event:** Assess the rule that a newly created character belongs to no faction without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `initialize-character-factions` and assessed Element 13 only. No domain type, BDD, expected output, focused test, production code, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item was deterministically identifiable. A named `Faction` object plus a read-only membership query establishes the smallest domain protocol needed for this behavior and the immediately following join/leave rules.
+
+### IP-122 — Define a new character's empty faction membership
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** `PlayerCharacter` currently has no faction concept. The requirements say a new character belongs to no faction, and later rules need characters to join, leave, and compare faction memberships.
+- **Request or event:** Approve Element 13: create Hero and a named Knights faction during Arrange; invoke `hero.belongsTo(knights)` as the single Act; assert `Hero belongs to Knights: false.` Add `NewCharacterFaction_bdd.newCharacterBelongsToNoFaction` and its approved output, then run it against unchanged production code. The predicted outside red is test-compilation failure because `Faction` and the `PlayerCharacter.belongsTo(Faction)` protocol do not exist. Stop for confirmation before focused tests or implementation. Joining, leaving, equality between separately constructed same-name factions, allies, ally damage/healing, faction-based progression, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact BDD, expected output, named `Faction` object, and `belongsTo` query for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** `PlayerCharacter` is the membership information, decision, and state owner; `Faction` supplies domain identity and a name. A query preserves encapsulation instead of exposing a mutable membership collection, while faction equality semantics remain deferred until a behavior depends on them.
+
+### IP-123 — Confirm empty faction membership outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `NewCharacterFaction_bdd.newCharacterBelongsToNoFaction` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm that Maven's test-compilation failure is the expected outside red: `NewCharacterFaction_bdd.java:11` cannot find symbol `Faction`. Compilation stops at the missing domain type before it can resolve the planned `PlayerCharacter.belongsTo(Faction)` query. Authorize the next slice: add one focused empty-membership test, observe its red, then implement only the named `Faction` domain object and read-only membership query needed to make the focused and BDD tests green.
+- **Response:** `a`
+- **Resulting authorization or action:** Confirmed the expected missing-`Faction` outside red and authorized the complete next slice: add one focused empty-membership test, record its red, then implement only the named `Faction` domain object and read-only membership query needed to make the focused and BDD tests green.
+- **Automation evidence:** The failure is at the intended domain boundary, not in test infrastructure or approved-output comparison. Production sources remain unchanged.
+
+### IP-124 — Commit the verified empty initial faction behavior
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** The exact eight-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:5d75a246a5b572f19f401d4b7e116d9274a17aa8a9d4431049a8f84e2c757b18`. Twenty-eight active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those ten relevant paths plus the human's unrelated `README.md` and `.idea` work.
+- **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F start characters without factions`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
+- **Response:** Pending human response.
+- **Resulting authorization or action:** No staging, commit, or push is authorized until confirmation.
+- **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, two production paths, two protected BDD assets, and the focused test. The feature artifact and `interations.md` are evidence-only so recording the receipt cannot invalidate the verified candidate digest.

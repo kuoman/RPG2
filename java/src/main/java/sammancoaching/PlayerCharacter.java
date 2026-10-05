@@ -1,7 +1,11 @@
 package sammancoaching;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PlayerCharacter {
     private final String name;
+    private final Set<Faction> factions;
     private int health;
     private int level;
     private int maximumHealth;
@@ -9,6 +13,7 @@ public class PlayerCharacter {
 
     public PlayerCharacter(String name) {
         this.name = name;
+        factions = new HashSet<>();
         level = 1;
         maximumHealth = 1000;
         health = maximumHealth;
@@ -47,6 +52,10 @@ public class PlayerCharacter {
     void gainLevel() {
         level += 1;
         maximumHealth += 100;
+    }
+
+    public boolean belongsTo(Faction faction) {
+        return factions.contains(faction);
     }
 
     Status status() {

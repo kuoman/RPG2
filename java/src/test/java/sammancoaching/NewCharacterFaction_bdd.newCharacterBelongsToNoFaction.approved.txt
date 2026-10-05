@@ -1,0 +1,2 @@
+Hero is newly created.
+Hero belongs to Knights: false.
