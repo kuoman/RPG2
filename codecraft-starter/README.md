@@ -1,6 +1,6 @@
 # CodeCraft Starter
 
-Version: 0.4.1
+Version: 0.5.1
 
 CodeCraft Starter can create a minimal Java/Maven build in a build-less directory or install a repository-local collaborative development workflow into an existing Maven project. The target repository receives its own AI instructions, project agreement, skills, protection hook, active-run state, review ledger, and isolated completion verifier. It does not depend on this RPG Combat repository after installation.
 
@@ -64,6 +64,8 @@ Start a fresh model in the target repository and say:
 The installed entrypoint routes the model to the working agreement, skill, project configuration, feature cycle, evolution guide, and completion lanes. The model should adapt the Java/Maven profile through an explicit reviewed automation slice when the existing build lacks the optional quality integrations.
 
 For an active implementation increment, `.codecraft/bin/codecraft_run.py resume` provides its current stage, next action, pending attention, and narrow context paths. Run records are ignored operational state and never replace approval or committed evidence.
+
+At commit time, `.codecraft/bin/commit_verified_increment.py prepare` reports one identity bound to the current signed receipt, exact candidate and evidence contents, base commit, lane, and Arlo message. After human approval, its `execute` mode performs exact staging, staged verification, one path-limited commit, and committed verification as a single protected operation. It never pushes.
 
 ## Upgrade
 

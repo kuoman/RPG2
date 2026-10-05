@@ -181,7 +181,11 @@ class AssetProtection:
         if not tokens:
             return []
         executable = Path(tokens[0]).name
-        uncertain = executable in {"python", "python3", "perl", "ruby", "sh", "bash", "zsh"}
+        if executable == "commit_verified_increment.py":
+            if any(token in command for token in (";", "&&", "||", "|", ">", "`", "$(", "\n")):
+                return registered
+            return self.commit_transaction_paths(tokens, registered)
+        uncertain = executable in {"env", "python", "python3", "perl", "ruby", "sh", "bash", "zsh"}
         uncertain = uncertain or (executable == "git" and len(tokens) > 1 and tokens[1] in {"checkout", "clean", "reset", "restore"})
         if uncertain:
             return registered
@@ -193,6 +197,41 @@ class AssetProtection:
                 if fnmatch.fnmatch(protected, normalized) or normalized.rstrip("/") in parents:
                     found.add(protected)
         return found
+
+    def commit_transaction_paths(self, tokens, registered):
+        if len(tokens) < 2 or tokens[1] != "execute":
+            return []
+        try:
+            candidate_file = self.option(tokens, "--candidate-file")
+            evidence_file = self.option(tokens, "--evidence-file", required=False)
+            paths = self.manifest_paths(candidate_file)
+            if evidence_file:
+                paths.extend(self.manifest_paths(evidence_file))
+            return paths
+        except (OSError, ValueError):
+            return registered
+
+    @staticmethod
+    def option(tokens, name, required=True):
+        for index, token in enumerate(tokens):
+            if token == name and index + 1 < len(tokens):
+                return tokens[index + 1]
+            if token.startswith(name + "="):
+                return token.split("=", 1)[1]
+        if required:
+            raise ValueError(f"missing {name}")
+        return None
+
+    @staticmethod
+    def manifest_paths(path):
+        values = []
+        for raw in Path(path).read_text().splitlines():
+            value = raw.strip()
+            if value and not value.startswith("#"):
+                values.append(value)
+        if not values:
+            raise ValueError("path manifest is empty")
+        return values
 
     @staticmethod
     def patch_operations(command):

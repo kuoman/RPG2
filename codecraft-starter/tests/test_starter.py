@@ -384,11 +384,12 @@ class StarterDistributionTest(unittest.TestCase):
     def test_should_install_a_self_contained_java_maven_workflow(self):
         result = self.distribution.install(self.target, "Sample Service")
 
-        self.assertEqual("installed CodeCraft Starter 0.4.1", result)
+        self.assertEqual("installed CodeCraft Starter 0.5.1", result)
         self.assertTrue((self.target / ".agents/skills/codecraft/SKILL.md").is_file())
         self.assertTrue((self.target / ".agents/skills/committer/SKILL.md").is_file())
         self.assertTrue((self.target / ".codecraft/bin/codecraft_doctor.py").is_file())
         self.assertTrue((self.target / ".codecraft/bin/verify_increment.py").is_file())
+        self.assertTrue((self.target / ".codecraft/bin/commit_verified_increment.py").is_file())
         self.assertTrue((self.target / ".codecraft/bin/codecraft_run.py").is_file())
         self.assertTrue((self.target / ".codecraft/hooks/protect_assets.py").is_file())
         self.assertTrue((self.target / ".codex" / "hooks.json").is_file())
@@ -399,7 +400,7 @@ class StarterDistributionTest(unittest.TestCase):
         self.assertIn(".claude/rules/always.md", (self.target / "AGENTS.md").read_text())
         self.assertIn(".codecraft/state/", (self.target / ".gitignore").read_text())
         installation = json.loads((self.target / ".codecraft/installation.json").read_text())
-        self.assertEqual("0.4.1", installation["version"])
+        self.assertEqual("0.5.1", installation["version"])
         self.assertEqual("java-maven", installation["profile"])
         self.assertEqual([], Doctor(self.target).problems())
 
@@ -408,7 +409,7 @@ class StarterDistributionTest(unittest.TestCase):
 
         result = self.distribution.install(self.target, "Sample Service")
 
-        self.assertEqual("CodeCraft Starter 0.4.1 is already installed", result)
+        self.assertEqual("CodeCraft Starter 0.5.1 is already installed", result)
 
     def test_should_preserve_project_owned_files_during_an_upgrade(self):
         self.distribution.install(self.target, "Sample Service")
@@ -421,7 +422,7 @@ class StarterDistributionTest(unittest.TestCase):
 
         result = self.distribution.upgrade(self.target)
 
-        self.assertEqual("CodeCraft Starter 0.4.1 is current", result)
+        self.assertEqual("CodeCraft Starter 0.5.1 is current", result)
         self.assertIn("Local agreement.", agreement.read_text())
         self.assertIn('"local"', review_ledger.read_text())
         self.assertIn("Local emoji convention.", conventions.read_text())
@@ -599,6 +600,148 @@ class StarterDistributionTest(unittest.TestCase):
 
         self.assertIn("verification receipt is current", result.stdout)
 
+    def test_should_commit_one_receipt_bound_transaction_without_unrelated_work(self):
+        self.distribution.install(self.target, "Sample Service")
+        subprocess.run(["git", "config", "user.name", "CodeCraft Test"], cwd=self.target, check=True)
+        subprocess.run(["git", "config", "user.email", "codecraft@example.invalid"], cwd=self.target, check=True)
+        subprocess.run(["git", "add", "."], cwd=self.target, check=True)
+        subprocess.run(["git", "commit", "--quiet", "-m", "baseline"], cwd=self.target, check=True)
+        protected = "src/test/java/Combat_bdd.java"
+        source = self.target / protected
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_text("class Combat_bdd {}\n")
+        evidence_path = "automation/verified-commit-evidence.md"
+        evidence = self.target / evidence_path
+        evidence.write_text("verified transaction\n")
+        candidate_manifest = Path(self.temporary_directory.name) / "candidate.paths"
+        candidate_manifest.write_text(protected + "\n")
+        evidence_manifest = Path(self.temporary_directory.name) / "evidence.paths"
+        evidence_manifest.write_text(evidence_path + "\n")
+        verifier = self.target / ".codecraft/bin/verify_increment.py"
+        helper = self.target / ".codecraft/bin/commit_verified_increment.py"
+        subprocess.run(
+            [str(verifier), "behavior", "--candidate-file", str(candidate_manifest)],
+            cwd=self.target,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        message = "F demonstrate verified commit transaction"
+        common = [
+            "behavior",
+            "--candidate-file",
+            str(candidate_manifest),
+            "--evidence-file",
+            str(evidence_manifest),
+            "--message",
+            message,
+        ]
+        prepared = subprocess.run(
+            [str(helper), "prepare", *common],
+            cwd=self.target,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        transaction = json.loads(prepared.stdout)["transaction"]
+        evidence.write_text("changed after approval preparation\n")
+
+        changed = subprocess.run(
+            [str(helper), "execute", *common, "--transaction", transaction],
+            cwd=self.target,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertNotEqual(0, changed.returncode)
+        self.assertIn("transaction identity changed", changed.stderr)
+        self.assertEqual("", subprocess.run(["git", "diff", "--cached", "--name-only"], cwd=self.target, check=True, capture_output=True, text=True).stdout)
+        evidence.write_text("verified transaction\n")
+        (self.target / "README.md").write_text("unrelated local work\n")
+
+        committed = subprocess.run(
+            [str(helper), "execute", *common, "--transaction", transaction],
+            cwd=self.target,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertIn("verified transaction committed", committed.stdout)
+        paths = subprocess.run(
+            ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD"],
+            cwd=self.target,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.splitlines()
+        self.assertEqual(sorted([protected, evidence_path]), sorted(paths))
+        self.assertEqual(message, subprocess.run(["git", "log", "-1", "--format=%s"], cwd=self.target, check=True, capture_output=True, text=True).stdout.strip())
+        self.assertIn("README.md", subprocess.run(["git", "status", "--short"], cwd=self.target, check=True, capture_output=True, text=True).stdout)
+
+        reused = subprocess.run(
+            [str(helper), "execute", *common, "--transaction", transaction],
+            cwd=self.target,
+            capture_output=True,
+            text=True,
+        )
+        self.assertNotEqual(0, reused.returncode)
+
+    def test_should_guard_one_verified_commit_execution_as_one_protected_operation(self):
+        self.distribution.install(self.target, "Sample Service")
+        protected = "src/test/java/Combat_bdd.java"
+        source = self.target / protected
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_text("class Combat_bdd {}\n")
+        (self.target / ".codecraft/protected-assets.json").write_text(json.dumps([protected]))
+        candidate_manifest = Path(self.temporary_directory.name) / "candidate.paths"
+        candidate_manifest.write_text(protected + "\n")
+        helper = self.target / ".codecraft/bin/commit_verified_increment.py"
+        guard = self.target / ".codecraft/hooks/protect_assets.py"
+        command = (
+            f"{helper} execute behavior --candidate-file {candidate_manifest} "
+            "--message 'F demonstrate verified commit transaction' --transaction sha256:" + "0" * 64
+        )
+        event = {
+            "hook_event_name": "PreToolUse",
+            "tool_name": "Bash",
+            "tool_input": {"command": command},
+            "tool_use_id": "transaction-1",
+            "session_id": "session-1",
+            "cwd": str(self.target),
+        }
+
+        compound = self.run_guard(
+            guard,
+            {
+                **event,
+                "tool_input": {"command": command.replace(" execute ", " prepare ") + f"; rm {source}"},
+                "tool_use_id": "transaction-compound",
+            },
+        )
+        wrapped = self.run_guard(
+            guard,
+            {
+                **event,
+                "tool_input": {"command": "env " + command},
+                "tool_use_id": "transaction-wrapped",
+            },
+        )
+        denied = self.run_guard(guard, event)
+        self.run_guard(
+            guard,
+            {"hook_event_name": "UserPromptSubmit", "prompt": "yes", "session_id": "session-1", "cwd": str(self.target)},
+        )
+        approved = self.run_guard(guard, event)
+        denied_again = self.run_guard(guard, {**event, "tool_use_id": "transaction-2"})
+
+        self.assertEqual("deny", denied["hookSpecificOutput"]["permissionDecision"])
+        self.assertEqual("deny", compound["hookSpecificOutput"]["permissionDecision"])
+        self.assertEqual("deny", wrapped["hookSpecificOutput"]["permissionDecision"])
+        self.assertIn(protected, denied["hookSpecificOutput"]["permissionDecisionReason"])
+        self.assertEqual({}, approved)
+        self.assertEqual("deny", denied_again["hookSpecificOutput"]["permissionDecision"])
+
     def test_should_require_single_use_approval_for_an_existing_behavior_test(self):
         self.distribution.install(self.target, "Sample Service")
         protected = "src/test/java/Behavior_" + "bdd.java"
@@ -630,32 +773,32 @@ class StarterDistributionTest(unittest.TestCase):
         self.distribution.install(self.target, "Sample Service")
         agreement = self.target / "automation/codecraft-working-agreement.md"
         agreement.write_text(agreement.read_text() + "\nProject evolution.\n")
-        next_package = Path(self.temporary_directory.name) / "codecraft-starter-0.5.0"
+        next_package = Path(self.temporary_directory.name) / "codecraft-starter-0.6.0"
         shutil.copytree(PACKAGE, next_package)
-        (next_package / "VERSION").write_text("0.5.0\n")
+        (next_package / "VERSION").write_text("0.6.0\n")
         skill_source = next_package / "payload/agents/codecraft-skill.md"
         skill_source.write_text(skill_source.read_text() + "\nDistribution improvement.\n")
 
         result = StarterDistribution(next_package).upgrade(self.target)
 
-        self.assertEqual("CodeCraft Starter 0.5.0 is current", result)
+        self.assertEqual("CodeCraft Starter 0.6.0 is current", result)
         self.assertIn("Distribution improvement.", (self.target / ".agents/skills/codecraft/SKILL.md").read_text())
         self.assertIn("Project evolution.", agreement.read_text())
         installation = json.loads((self.target / ".codecraft/installation.json").read_text())
-        self.assertEqual("0.5.0", installation["version"])
+        self.assertEqual("0.6.0", installation["version"])
 
     def test_should_apply_an_explicit_safe_managed_file_removal_migration(self):
         self.distribution.install(self.target, "Sample Service")
-        next_package = Path(self.temporary_directory.name) / "codecraft-starter-0.5.0"
+        next_package = Path(self.temporary_directory.name) / "codecraft-starter-0.6.0"
         shutil.copytree(PACKAGE, next_package)
-        (next_package / "VERSION").write_text("0.5.0\n")
+        (next_package / "VERSION").write_text("0.6.0\n")
         manifest = next_package / "payload/manifest.json"
         definition = json.loads(manifest.read_text())
         removed_entry = definition["managed"].pop()
         definition["migrations"] = [
             {
-                "from": "0.4.1",
-                "to": "0.5.0",
+                "from": "0.5.1",
+                "to": "0.6.0",
                 "removeManaged": [removed_entry["target"]],
             }
         ]
@@ -723,9 +866,9 @@ class StarterDistributionTest(unittest.TestCase):
             StarterDistribution(changed_package).upgrade(self.target)
 
     def test_should_reject_a_distribution_downgrade(self):
-        newer_package = Path(self.temporary_directory.name) / "codecraft-starter-0.5.0"
+        newer_package = Path(self.temporary_directory.name) / "codecraft-starter-0.6.0"
         shutil.copytree(PACKAGE, newer_package)
-        (newer_package / "VERSION").write_text("0.5.0\n")
+        (newer_package / "VERSION").write_text("0.6.0\n")
         StarterDistribution(newer_package).install(self.target, "Sample Service")
 
         with self.assertRaisesRegex(ValueError, "downgrade"):
@@ -738,7 +881,7 @@ class StarterDistributionTest(unittest.TestCase):
 
         result = self.distribution.upgrade(moved)
 
-        self.assertEqual("CodeCraft Starter 0.4.1 is current", result)
+        self.assertEqual("CodeCraft Starter 0.5.1 is current", result)
         self.assertTrue((moved / ".agents/skills/codecraft/SKILL.md").is_file())
 
     def test_should_reject_non_repository_and_escaping_project_paths_before_writing(self):

@@ -725,3 +725,63 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Response:** `a`
 - **Resulting authorization or action:** Authorized the prepared exact nine-path `git commit --only` command with Arlo message `F kill targets when health is depleted`, after refreshing interaction evidence and the staged receipt. No push is authorized.
 - **Automation evidence:** This third consecutive identical stage-versus-commit checkpoint satisfies the working agreement's threshold for proposing versioned automation of a transaction-scoped commit capability.
+
+### IP-072 — Third occurrence triggers workflow-learning assessment
+
+- **Type:** Human continuation and workflow-learning trigger
+- **Stage:** Assessment
+- **Trigger:** After Element 4 was committed, the human requested `continue`. IP-061, IP-066, and IP-071 record three consecutive cases where one approved commit checkpoint was split into two human interactions because protected staging consumed the single-use authorization before `git commit --only`.
+- **Request or event:** Compare the three occurrences, inspect the protection and committer contracts, and assess versioned automation before beginning the next planned behavior.
+- **Response:** `continue`
+- **Resulting authorization or action:** Assessment only. `codecraft_run.py resume --json` returned `{"active": false}`; no feature run, self-damage behavior, workflow machinery, or protected asset was changed.
+- **Automation evidence:** The duplicated checkpoint is deterministic: the guard binds approval to one tool-input digest, while the committer skill requires separate protected staging and path-limited commit operations over the same verified manifest.
+
+### IP-073 — Approve a verified commit transaction capability
+
+- **Type:** Human workflow-design checkpoint
+- **Stage:** Design
+- **Trigger:** The third repeated stage-versus-commit interaction meets the working agreement's automation threshold. Review found that merely hiding internal Git operations in a wrapper would weaken protection; the safe boundary is one guard-visible, receipt-bound transaction that fails closed if its approved identity changes.
+- **Request or event:** Approve CodeCraft Starter 0.5.0's proposed verified commit transaction: one single-use human approval covers exact manifest staging, staged receipt validation, one exact Arlo commit, and committed receipt validation. Bind the transaction identity to lane, base commit, current receipt, candidate and evidence paths and contents, and commit message; reject changes, extra paths, stale receipts, reuse, or push. Keep feature behavior outside this automation slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized implementation and verification of the CodeCraft Starter 0.5.0 verified commit transaction as an automation-only slice. Self-damage behavior and pushing remain unauthorized.
+- **Automation evidence:** The proposal removes one interaction per verified increment while retaining exact-path protection, single use, signed-receipt enforcement, unrelated-work exclusion, and the separate explicit authorization required for pushing.
+
+### IP-074 — Install the approved 0.5.0 machinery through its distribution
+
+- **Type:** Human protected-workflow checkpoint
+- **Stage:** Implementation
+- **Trigger:** The approved CodeCraft Starter 0.5.0 package and its 55 clean-room tests are green. The required distribution upgrade command, `codecraft-starter/bin/codecraft_starter.py upgrade --target .`, was blocked by the installed 0.4.1 guard because the repository-root target conservatively resolves to all registered protected assets.
+- **Request or event:** Confirm rerunning that exact versioned upgrade command. It will update distribution-managed CodeCraft files and the installation record from 0.4.1 to 0.5.0; it will not modify feature behavior, stage or commit files, or push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized the exact distribution upgrade. Its first execution reached the host sandbox and failed before changing installed files because `.agents` requires escalated filesystem access.
+- **Automation evidence:** This is a one-time bootstrap checkpoint imposed by the pre-transaction guard. Avoiding it by changing the target spelling would bypass the prepared protected-operation identity rather than improve the workflow.
+
+### IP-075 — Retry the approved upgrade with host filesystem permission
+
+- **Type:** Human checkpoint caused by sandbox metadata
+- **Stage:** Implementation
+- **Trigger:** IP-074 approved the exact upgrade, but its non-escalated execution failed on `.agents/skills/codecraft/.SKILL.md.*`. The retry requires `sandbox_permissions=require_escalated`; because the 0.4.1 guard hashes the entire tool input, that host-only metadata changed the protected-operation identity and the guard blocked the retry. Status confirms no installed `.agents` or `.codecraft` file was changed.
+- **Request or event:** Confirm the prepared escalated retry of the same command, `codecraft-starter/bin/codecraft_starter.py upgrade --target .`. The semantic target and authorized upgrade are unchanged.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed the identical escalated upgrade. The installed workflow now reports CodeCraft Starter 0.5.0 healthy; no feature behavior, commit, or push was changed.
+- **Automation evidence:** This interaction was avoidable: the upgrade should have been prepared with known `.agents` filesystem escalation before IP-074. Future protected operations should bind semantic command identity independently of host sandbox metadata.
+
+### IP-076 — Install the reviewed 0.5.1 guard hardening
+
+- **Type:** Human protected-workflow checkpoint
+- **Stage:** Review
+- **Trigger:** Review of the installed 0.5.0 helper found that a compound shell command beginning with the read-only `prepare` action could bypass manifest inspection. CodeCraft Starter 0.5.1 fails closed for compound and environment-wrapped helper commands. The package is healthy and all 55 clean-room tests pass. The exact escalated upgrade was prepared before this checkpoint and blocked by the installed guard as designed.
+- **Request or event:** Confirm `codecraft-starter/bin/codecraft_starter.py upgrade --target .` with the already-prepared filesystem escalation. This installs only the reviewed 0.5.1 guard hardening and corresponding signed installation record; it does not change feature behavior, commit, or push.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed the prepared upgrade. The installed workflow is now CodeCraft Starter 0.5.1; feature behavior remains unchanged and no commit or push occurred.
+- **Automation evidence:** The review caught and pinned a real executable-boundary bypass before completion. Preparing the escalation before the checkpoint avoids repeating IP-075.
+
+### IP-077 — Commit the verified transaction automation
+
+- **Type:** Human protected-file and commit checkpoint
+- **Stage:** Commit preparation
+- **Trigger:** CodeCraft Starter 0.5.1, its installed machinery, package integrity, post-upgrade doctor, and 55 clean-room tests are green. The exact automation candidate excludes the user's unrelated `README.md` and `.idea` work. The isolated automation completion lane and read-only transaction preparation are the remaining prerequisites.
+- **Request or event:** If those prerequisites pass, confirm one receipt-bound transaction that stages and commits only the exact automation candidate and allowed evidence with Arlo message `e add verified commit transaction`. The transaction will validate before and after the path-limited commit; it will not push. The exact receipt and transaction identities will be presented in the human prompt.
+- **Response:** Pending.
+- **Resulting authorization or action:** No staging, commit, run completion, or push is authorized until the exact prepared transaction is presented and the human answers with `approve`, `a`, `yes`, or `y`.
+- **Automation evidence:** This is the first live use of the new one-approval commit boundary. Interaction evidence is frozen while approval is pending; the response will be recorded after execution so it cannot invalidate the approved content identity.

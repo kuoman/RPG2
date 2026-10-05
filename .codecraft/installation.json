@@ -8,13 +8,13 @@
     "RESPONSIBILITY_MAP_PATH": "emergent/design/responsibility-map.md",
     "SOURCE_ROOT": "src/main/java",
     "SOURCE_ROOT_JSON": "\"src/main/java\"",
-    "TARGET": "/private/tmp/rpg2-codecraft-bootstrap.RWaHAI/repository",
+    "TARGET": "/Users/stephen.kuo/Documents/Code/RPG2",
     "TEST_ROOT": "src/test/java",
     "TEST_ROOT_JSON": "\"src/test/java\"",
     "VERIFY_COMMAND_JSON": "[\"./mvnw\", \"verify\"]",
     "VERIFY_COMMAND_SHELL": "./mvnw verify"
   },
-  "distributionDigest": "sha256:e925903a45d69d56afbc6f790611a30ea5a95a81faa52994cf941bbe2087b1f5",
+  "distributionDigest": "sha256:de45cba0d5f6ebe927594570003dd1cc7f19e2592a8f43e97662319bd51960fb",
   "managed": {
     ".agents/skills/codecraft/SKILL.md": "556557dd2e58fb6abd82d368240980c059f1c8f020fe7118bd11a7d5fa2728fa",
     ".agents/skills/codecraft/agents/openai.yaml": "95030d34234c457e815112559fa5b5f662163cab4425df2878caab11f95c2e00",
@@ -23,15 +23,16 @@
     ".agents/skills/codecraft/references/active-run-state.md": "de7f4b05e9441ec37ab866ae94d4d34c78d7f70111ef01013e34fb320c416574",
     ".agents/skills/codecraft/references/evolution.md": "1eca93eb7cf5097a33c2a4561d11a95d1b7a7c4aa502c2b55e07e2bf9ec34a4a",
     ".agents/skills/codecraft/references/feature-cycle.md": "7fcdca4ee8a55cbc6445527f8d510a1f498062fd1d7e6bbd99ac69a93949e0f2",
-    ".agents/skills/committer/SKILL.md": "240fb180562bb54b81191afec72f30a5d0082310d06cfb9129ca1a1a16e6461c",
+    ".agents/skills/committer/SKILL.md": "4719ae78167e1ec0e5999570f4a31897e38278b3db165035fc14151a3e7440a1",
     ".claude/rules/codecraft.md": "2d30bb3584c57cbfb8629d366f46b22f65bdb67bf4d143aa60f8402a63ae3456",
     ".codecraft/bin/codecraft_doctor.py": "1a8c6a821b86c54e0e567f7f4c31fa61de0d5bedc9d7ddc6f3154e97d7923f5d",
     ".codecraft/bin/codecraft_run.py": "0c6e41e0d84b7394678e7d558b738e690152a779cef11db0af68647d3053721d",
+    ".codecraft/bin/commit_verified_increment.py": "3026faf1ea0a852a6ef7e739ef815372caf75f6b523a72ed8852600f4d2667d6",
     ".codecraft/bin/prepare_protected_change.py": "6865b7770dc59f46436584d29f9d03786cd3ddee0fb84f046586bf3dd6609468",
     ".codecraft/bin/record_review_decision.py": "9460dc031d0e0c7baea7f64b249afa052a1be86bb6819a4a4a34cce1a24ceddb",
     ".codecraft/bin/validate_skill.py": "b64f415d14e096eeee52e816d3d2c537ef7168b81b9322afd765782ebf287bb7",
     ".codecraft/bin/verify_increment.py": "552240eff2d2e0d1485d39409d07a7b0a3790491e0c395a6290d2887f9dcc552",
-    ".codecraft/hooks/protect_assets.py": "145b9f1babde6f9ee172d7328ce82a91b18a8b49d706db5707cc9623c76395e5",
+    ".codecraft/hooks/protect_assets.py": "b009811af4ce0deb755ab8f6d0f1565b16dca2ca9d3467873227b84e8e27dbc2",
     ".codecraft/profiles/java-maven/README.md": "0b714b879c2c0b94b8735c3ad93e4d7acb17785c98390da7daf7d127d8d7ce9a",
     ".codecraft/profiles/java-maven/pom-fragment.xml": "f4360225435bc1b4bc1ef7cf55dd68dfbab9dad561558dbe5e5696341d8c1e74",
     ".codex/config.toml": "5a69392702457314fb5ae3ecdc2fc3f627792b5c0b19a93bfac49c6a1046e6f9",
@@ -49,6 +50,7 @@
     ".claude/rules/codecraft.md": 420,
     ".codecraft/bin/codecraft_doctor.py": 493,
     ".codecraft/bin/codecraft_run.py": 493,
+    ".codecraft/bin/commit_verified_increment.py": 493,
     ".codecraft/bin/prepare_protected_change.py": 493,
     ".codecraft/bin/record_review_decision.py": 493,
     ".codecraft/bin/validate_skill.py": 493,
@@ -77,6 +79,6 @@
     ".claude/rules/always.md",
     ".github/workflows/codecraft.yml"
   ],
-  "signature": "b790ccf81cf8d5e1f720ec880a51a92fafa85f141af2598ed468e32e250de112",
-  "version": "0.4.1"
+  "signature": "4fb93fc4978d5f8394cca3f298831f69751a56f71cf668e7a26daae2248489fc",
+  "version": "0.5.1"
 }

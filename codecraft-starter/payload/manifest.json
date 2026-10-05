@@ -14,6 +14,7 @@
     {"source": "runtime/review-decision.py", "target": ".codecraft/bin/record_review_decision.py", "executable": true},
     {"source": "runtime/validate-skill.py", "target": ".codecraft/bin/validate_skill.py", "executable": true},
     {"source": "runtime/verify-increment.py", "target": ".codecraft/bin/verify_increment.py", "executable": true},
+    {"source": "runtime/commit-verified-increment.py", "target": ".codecraft/bin/commit_verified_increment.py", "executable": true},
     {"source": "runtime/protect-assets.py", "target": ".codecraft/hooks/protect_assets.py", "executable": true},
     {"source": "runtime/prepare-protected-change.py", "target": ".codecraft/bin/prepare_protected_change.py", "executable": true},
     {"source": "integrations/codex-hooks.json", "targetParts": [".codex", "hooks.json"]},
