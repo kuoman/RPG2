@@ -1,0 +1,4 @@
+Hero and Stranger share no faction.
+Stranger attempts to heal Hero by 50.
+Before: Hero has 900 health and is alive.
+After: Hero has 950 health and is alive.

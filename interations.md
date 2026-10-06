@@ -1452,6 +1452,36 @@ Purpose: preserve the interaction and interruption evidence needed to identify s
 - **Stage:** Commit preparation
 - **Trigger:** The exact seven-path behavior candidate plus two evidence paths passed the isolated behavior lane with receipt candidate digest `sha256:4d8645e6364e69341ab6cfa4b5b77eeb00c9d07c15806d97d66c0849ae0f7621`. Thirty-eight active Java tests and all 55 Starter tests pass; one deferred legacy seed is skipped. Complete status contains only those nine relevant paths plus the human's unrelated `README.md` and `.idea` work.
 - **Request or event:** Confirm one receipt-bound transaction that stages and commits only the exact candidate and evidence paths with Arlo message `F allow allies to heal one another`. Validate before and after the path-limited commit; keep `README.md` and `.idea` unstaged and do not push. The exact transaction identity will be presented after the non-mutating protected-command preflight has registered its digest.
-- **Response:** Pending human response.
-- **Resulting authorization or action:** No staging or commit is authorized until the human confirms the exact transaction identity.
+- **Response:** `a`
+- **Resulting authorization or action:** Authorized and completed transaction `sha256:8625965a4c5c48dfa562dabb995f9153b6beecf570edb29e43b2f6ef05b96c1c`. Commit `d1d9bfe25680b0a39d2b3de1de0ff0fd98cc1960` contains exactly the seven behavior candidate paths and two evidence paths with Arlo message `F allow allies to heal one another`. Both staged and committed receipt checks passed; no push occurred.
 - **Automation evidence:** The executable/design candidate contains the protected registry, roadmap, responsibility map, production overload, two protected BDD assets, and focused test. The feature artifact and `interations.md` are evidence-only, preserving receipt stability while still committing the full audit trail.
+
+### IP-145 — Continue to rejecting non-ally healing
+
+- **Type:** Human continuation
+- **Stage:** Planning assessment
+- **Trigger:** Element 18 allied healing was committed and its CodeCraft run completed. The human requested continuation to the next provisional Factions item.
+- **Request or event:** Assess the rule that a character cannot heal a non-ally, without implementing before the required human checkpoint.
+- **Response:** `continue`
+- **Resulting authorization or action:** Opened behavior run `prevent-non-ally-healing` and assessed Element 19 only. No BDD, expected output, focused test, production guard, roadmap, or responsibility-map change is authorized by this continuation alone.
+- **Automation evidence:** The next unchecked roadmap item is deterministic. The healing `PlayerCharacter` already owns the character-to-character command and alliance query, so it can decide admission before delegating restoration to the target. The target remains the sole health-state owner; no new collaborator is needed.
+
+### IP-146 — Define non-ally healing rejection
+
+- **Type:** Human BDD design checkpoint
+- **Stage:** Design
+- **Trigger:** Character-to-character healing delegates directly to the target's restoration behavior, so a character with no shared faction can currently heal the target. The requirements prohibit non-allies from healing one another.
+- **Request or event:** Approve Element 19: create Hero, Stranger, and Orc with no faction memberships; damage Hero from 1000 to 900 through Orc and capture Hero's printed state during Arrange; invoke `stranger.heal(hero, 50)` as the single Act; assert Hero remains at 900 health and alive. Add `NonAllyHealing_bdd.nonAllyHealingIsIgnored` and its approved output, then run it against unchanged production code. The predicted outside red is an approval mismatch: production reports Hero at 950 health rather than the approved unchanged 900. Stop for confirmation before focused tests or implementation. Changes to allied or self-healing, dead-target healing, self-alliance, faction equality, faction progression, damage behavior, and magical objects remain outside this slice.
+- **Response:** `a`
+- **Resulting authorization or action:** Approved the exact non-ally-healing BDD, unchanged-health output, and predicted 950-versus-900 approval mismatch for the outside-red run only. Focused tests and production implementation remain unauthorized until the human confirms the observed red.
+- **Automation evidence:** The healer receives the command, owns the admission decision, and can reuse `isAlliedWith(target)` without exposing either membership collection. The target remains the health and life-state owner and receives no restoration command when admission fails. No interface, injection point, or composition root is required.
+
+### IP-147 — Confirm non-ally-healing outside red
+
+- **Type:** Human outside-red checkpoint
+- **Stage:** Outside red
+- **Trigger:** The approved `NonAllyHealing_bdd.nonAllyHealingIsIgnored` scenario was added with its exact approved output and run against unchanged production code.
+- **Request or event:** Confirm the expected approval mismatch: the approved output keeps Hero alive at 900 health, while the received output shows Stranger's 50 healing raised Hero to 950 health. Authorize the next slice: remove the generated received output, add one focused non-ally-healing test, record its 950-versus-900 red, then implement only an alliance-admission guard in `PlayerCharacter.heal(PlayerCharacter, int)` before delegating restoration to the target.
+- **Response:** Pending human response.
+- **Resulting authorization or action:** The protected BDD assets and generated received evidence exist, and the expected outside red is recorded. No focused test, generated-output cleanup, or production implementation is authorized until confirmation.
+- **Automation evidence:** The mismatch is the exact predicted domain failure rather than a compilation or test-infrastructure problem. Production sources remain unchanged, and existing allied and self-healing protocols still compile.
